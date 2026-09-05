@@ -68,10 +68,16 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
-              <div className="flex gap-4 justify-center">
-                <a href={project.liveLink} target="_blank" rel="noreferrer" className="text-emerald-400 hover:underline">Live Demo</a>
-                <a href={project.github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition">GitHub</a>
-              </div>
+              {(project.liveLink || project.github) && (
+                <div className="flex gap-4 justify-center">
+                  {project.liveLink && (
+                    <a href={project.liveLink} target="_blank" rel="noreferrer" className="text-emerald-400 hover:underline">Live Demo</a>
+                  )}
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition">GitHub</a>
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>
