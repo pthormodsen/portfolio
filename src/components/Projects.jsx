@@ -18,14 +18,14 @@ const projects = [
     title: "Project Manager",
     description: "A full-stack project management application with a Kanban-style interface for organizing projects and tasks.",
     tech: ["React", "TypeScript", "Spring Boot", "PostgreSQL"],
-    liveLink: "https://wpm.patreek.no",
+    liveLink: "",
     github: ""
   },
   {
     title: "Registration System",
     description: "A web application for registering participants and managing participant lists with server-side validation.",
     tech: ["Java", "Spring Boot", "JSP", "PostgreSQL"],
-    liveLink: "https://paamelding.patreek.no",
+    liveLink: "",
     github: ""
   },
   {
