@@ -48,6 +48,11 @@ export default function ProjectDetail() {
           <div className="flex gap-4 justify-center">
             {project.liveLink && <a href={project.liveLink} target="_blank" rel="noreferrer" className="text-emerald-400 hover:underline">Live Demo</a>}
             {project.github && <a href={project.github} target="_blank" rel="noreferrer" className="text-gray-300 hover:text-white">GitHub</a>}
+            {project.githubLinks?.map((link) => (
+              <a key={link.url} href={link.url} target="_blank" rel="noreferrer" className="text-gray-300 hover:text-white">
+                GitHub ({link.label})
+              </a>
+            ))}
           </div>
         </article>
       </main>

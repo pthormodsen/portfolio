@@ -16,8 +16,18 @@ const chessImages = import.meta.glob(
   }
 );
 
+const wpmImages = import.meta.glob(
+  "../assets/projects/wpm/*.{png,jpg,jpeg,webp}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }
+);
+
 const todoPictures = Object.values(todoImages);
 const chessPictures = Object.values(chessImages);
+const wpmPictures = Object.values(wpmImages);
 
 {/* 
 export const projects = [
@@ -93,25 +103,29 @@ export const projects = [
     github: "https://github.com/pthormodsen/Chess",
     images: chessPictures
   },
+
+  {
+    slug: "wpm",
+    title: "WPM Typing Test",
+    description: "A typing speed test application built with React and TypeScript, featuring a timer, word count, and accuracy tracking.",
+    tech: ["React", "TypeScript", "Tailwind CSS"],
+    liveLink: "https://wpm.patreek.no",
+    github: "https://github.com/pthormodsen/wpm-typing-app",
+    images: wpmPictures
+  },
+
   {
     slug: "project-manager",
     title: "Project Manager",
     description: "A full-stack project management system with a React/TypeScript Kanban board and a Spring Boot REST API for users, projects, and tasks.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Spring Boot", "Spring Data JPA", "H2"],
-    liveLink: "",
+    liveLink: "https://projectmanager.patreek.no",
     githubLinks: [
       { label: "Frontend", url: "https://github.com/pthormodsen/projectmanager-frontend" },
       { label: "Backend", url: "https://github.com/pthormodsen/Projectmanager-backend" }
     ]
   },
-  {
-    slug: "registration-system",
-    title: "Registration System",
-    description: "A Spring Boot participant registration system with JSP views, login flow, participant list management, server-side validation, and PostgreSQL persistence.",
-    tech: ["Java", "Spring Boot", "JSP", "JSTL", "Spring Data JPA", "PostgreSQL"],
-    liveLink: "",
-    github: "https://github.com/pthormodsen/oblig4dat108"
-  },
+  
   {
     slug: "quiz-app",
     title: "Quiz App",

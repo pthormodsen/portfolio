@@ -27,7 +27,7 @@ export default function Projects() {
                   ))}
                 </div>
               </Link>
-              {(project.liveLink || project.github) && (
+              {(project.liveLink || project.github || project.githubLinks?.length > 0) && (
                 <div className="flex gap-4 justify-center">
                   {project.liveLink && (
                     <a href={project.liveLink} target="_blank" rel="noreferrer" className="text-emerald-400 hover:underline">Live Demo</a>
@@ -35,6 +35,11 @@ export default function Projects() {
                   {project.github && (
                     <a href={project.github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition">GitHub</a>
                   )}
+                  {project.githubLinks?.map((link) => (
+                    <a key={link.url} href={link.url} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition">
+                      GitHub ({link.label})
+                    </a>
+                  ))}
                 </div>
               )}
             </div>
