@@ -120,12 +120,9 @@ export const projects = [
     description: "A full-stack project management system with a React/TypeScript Kanban board and a Spring Boot REST API for users, projects, and tasks.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Spring Boot", "Spring Data JPA", "H2"],
     liveLink: "https://projectmanager.patreek.no",
-    githubLinks: [
-      { label: "Frontend", url: "https://github.com/pthormodsen/projectmanager-frontend" },
-      { label: "Backend", url: "https://github.com/pthormodsen/Projectmanager-backend" }
-    ]
+    github: "https://github.com/pthormodsen/Projectmanager",
   },
-  
+
   {
     slug: "quiz-app",
     title: "Quiz App",
