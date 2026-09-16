@@ -36,10 +36,10 @@ export default function Info() {
           </p>
 
           <p className="text-lg leading-8 text-gray-400">
-            I mostly work with Java and Spring Boot, but I also enjoy building
+            I mostly work with Java, Springboot and React but I also enjoy building
             full-stack applications and learning how the different parts fit
             together. I prefer learning by actually building things and getting
-            them running for real.
+            them running using my homelab.
           </p>
         </div>
 

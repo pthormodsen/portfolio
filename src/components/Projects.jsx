@@ -18,7 +18,7 @@ export default function Projects() {
 
           <p className="max-w-2xl text-gray-400">
             Some of the projects I've worked on while learning,
-            experimenting, and building things I enjoy.
+            experimenting, and building things i enjoy.
           </p>
         </div>
 

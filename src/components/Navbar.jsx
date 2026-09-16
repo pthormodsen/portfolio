@@ -31,7 +31,7 @@ export default function Navbar() {
           </NavLink>
 
           <NavLink to="/blog" className={navClass}>
-            ./blog
+            ./blog [in progress]
           </NavLink>
         </div>
 
