@@ -1,27 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
-  return (
-    <nav className="top-0 left-0 w-full bg-gray-950 text-white">
-      <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+  const navClass = ({ isActive }) =>
+    `transition-colors duration-200 ${
+      isActive
+        ? "text-green-400"
+        : "text-gray-400 hover:text-white"
+    }`;
 
-        <Link to="/" className="text-xl font-bold">
-          Patrik
+  return (
+    <nav className="w-full bg-gray-950 border-b border-gray-800 font-mono">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <Link
+          to="/"
+          className="flex items-center gap-2 text-green-400"
+        >
+          <span className="text-gray-500">patrik@portfolio:</span>
+          <span>~$</span>
+          <span className="w-2 h-5 bg-green-400 animate-pulse" />
         </Link>
 
         <div className="flex items-center gap-8">
-          <Link to="/about">
-            About
-          </Link>{/* 
-          <Link to="/#projects">
-            Projects
-          </Link>
+          <NavLink to="/" end className={navClass}>
+            ~/home
+          </NavLink>
 
-          <Link to="/#contact">
-            Contact
-          </Link>
-          */}
+          <NavLink to="/about" className={navClass}>
+            ./about
+          </NavLink>
+
+          <NavLink to="/blog" className={navClass}>
+            ./blog
+          </NavLink>
         </div>
+
       </div>
     </nav>
   );

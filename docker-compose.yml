@@ -3,8 +3,20 @@ services:
     build: .
     container_name: portfolio
     restart: unless-stopped
+    depends_on:
+      - leaderboard
     networks:
       - cloudflare
+      - default
+
+  leaderboard:
+    build: ./server
+    restart: unless-stopped
+    volumes:
+      - leaderboard-data:/data
+
+volumes:
+  leaderboard-data:
 
 networks:
   cloudflare:
