@@ -9,7 +9,7 @@ export default function Navbar() {
     }`;
 
   return (
-    <nav className="w-full bg-gray-950 border-b border-gray-800 font-mono">
+    <nav className="sticky top-0 z-50 w-full border-b border-gray-800/70 bg-gray-950/90 text-white backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
 
         <Link

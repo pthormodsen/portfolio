@@ -128,7 +128,7 @@ export const projects = [
     title: "Quiz App",
     description: "A full-stack quiz application with a React/TypeScript frontend and Spring Boot REST API for creating quizzes, adding questions, and storing quiz data in H2.",
     tech: ["React", "TypeScript", "Spring Boot", "Spring Data JPA", "H2"],
-    liveLink: "",
+    liveLink: "https://quiz.patreek.no/login",
     github: "https://github.com/pthormodsen/QuizApp"
   }
 ];

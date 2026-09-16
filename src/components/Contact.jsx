@@ -1,21 +1,35 @@
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
+
 export default function Contact() {
   return (
-    <section id="contact" className="bg-gray-950 text-white px-6 py-24">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-6">
-          Contact
-        </h2>
-
-        <p className="text-gray-400 text-lg mb-8">
-          Feel free to reach out if you have any questions or just want to
-          get in touch.
+    <section id="contact" className="bg-gray-950 px-6 py-24 text-white">
+      <div className="mx-auto max-w-4xl text-center">
+        <p className="mb-2 font-mono text-sm text-emerald-400">
+          ~/portfolio/contact
         </p>
 
-        <div className="flex justify-center gap-6 pt-3">
+        <h2 className="text-3xl font-bold md:text-4xl">
+          Get in touch
+        </h2>
+
+        <p className="mx-auto mt-3 max-w-xl text-gray-400">
+          Want to talk about a project, an opportunity, or just something tech related?
+        </p>
+
+        <div className="mt-8 flex justify-center gap-8">
+          <a
+            href="tel:+4790471841"
+            className="flex items-center gap-2 text-gray-300 transition hover:text-emerald-400"
+          >
+            <FaPhone />
+            Phone
+          </a>
+
           <a
             href="mailto:patrik.thormodsen@gmail.com"
-            className="text-gray-300 hover:text-emerald-400 transition"
+            className="flex items-center gap-2 text-gray-300 transition hover:text-emerald-400"
           >
+            <FaEnvelope />
             Email
           </a>
 
@@ -23,8 +37,9 @@ export default function Contact() {
             href="https://github.com/pthormodsen"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-emerald-400 transition"
+            className="flex items-center gap-2 text-gray-300 transition hover:text-emerald-400"
           >
+            <FaGithub />
             GitHub
           </a>
 
@@ -32,8 +47,9 @@ export default function Contact() {
             href="https://www.linkedin.com/in/patrik-thormodsen-41537a364/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-emerald-400 transition"
+            className="flex items-center gap-2 text-gray-300 transition hover:text-emerald-400"
           >
+            <FaLinkedin />
             LinkedIn
           </a>
         </div>

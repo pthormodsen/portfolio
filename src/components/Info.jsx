@@ -1,7 +1,7 @@
 const notes = [
   {
     title: "Education",
-    text: "Computer Engineering at Western Norway University of Applied Sciences (HVL). Graduating with bachelor in 2027.",
+    text: "Computer Engineering at Western Norway University of Applied Sciences (HVL). Graduating in 2027.",
   },
   {
     title: "Interests",
@@ -9,44 +9,61 @@ const notes = [
   },
   {
     title: "Currently",
-    text: "Building personal projects, running services on my home server, and finishing my degree.",
+    text: "Building personal projects, running services at home, and finishing my degree.",
   },
 ];
 
 export default function Info() {
   return (
-    <section id="about" className="bg-gray-950 px-6 py-15 text-white">
-      <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-        <div className="text-left">
-          <h3 className="mb-3 text-2xl font-semibold uppercase tracking-[0.18em] text-emerald-400">
+    <section id="about" className="bg-gray-950 px-6 py-20 text-white">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-10">
+          <p className="mb-2 font-mono text-sm text-emerald-400">
+            ~/portfolio/about
+          </p>
+
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
             About me
-          </h3>
+          </h2>
+        </div>
+
+        <div className="grid gap-10 lg:grid-cols-2">
+          <p className="text-lg leading-8 text-gray-400">
+            I am currently studying computer engineering and use this website
+            to showcase some of the projects I have built. I enjoy programming
+            and spend a lot of my free time working on personal projects and
+            trying out new technologies.
+          </p>
 
           <p className="text-lg leading-8 text-gray-400">
-            I am currently studying computer engineering and use this website to showcase some of the projects I have built.
-            I enjoy programming and spend a lot of my free time working on personal projects and trying out new technologies.
-            I mostly work with Java and Spring Boot, but I also like building full-stack applications and learning more about how everything fits together.
+            I mostly work with Java and Spring Boot, but I also enjoy building
+            full-stack applications and learning how the different parts fit
+            together. I prefer learning by actually building things and getting
+            them running for real.
           </p>
         </div>
 
-        <div className="text-left mt-10">
-          <p className="text-lg leading-8 text-gray-400">
-            I like learning by actually building things. Whether it is a web application,
-            a small tool, or something running on my home server, I enjoy figuring out
-            how the different parts work together and getting it running for real.
-            I also have several projects I want to explore next, including building a
-            small server cluster and experimenting with ESP32 boards.
-          </p>
+        <div className="mt-12 grid gap-6 sm:grid-cols-3">
+          {notes.map((note) => (
+            <article
+              key={note.title}
+              className="border-l border-gray-800 pl-4"
+            >
+              <h3 className="mb-2 font-semibold text-white">
+                {note.title}
+              </h3>
 
-          <div className="grid gap-4 sm:grid-cols-3 mt-10">
-            {notes.map((note) => (
-              <article key={note.title} className="border-l border-gray-700 pl-4">
-                <h3 className="mb-2 font-semibold text-white">{note.title}</h3>
-                <p className="text-sm leading-6 text-gray-400">{note.text}</p>
-              </article>
-            ))}
-          </div>
+              <p className="text-sm leading-6 text-gray-400">
+                {note.text}
+              </p>
+            </article>
+          ))}
         </div>
+
+        <p className="mx-auto mt-10 max-w-3xl text-gray-500">
+          I also have a few things I want to explore next, including building
+          a small server cluster and experimenting more with ESP32 boards.
+        </p>
       </div>
     </section>
   );
