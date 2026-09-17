@@ -16,7 +16,7 @@ export default function Contact() {
           Want to talk about a project, an opportunity, or just something tech related?
         </p>
 
-        <div className="mt-8 flex justify-center gap-8">
+        <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-4">
           <a
             href="tel:+4790471841"
             className="flex items-center gap-2 text-gray-300 transition hover:text-emerald-400"
