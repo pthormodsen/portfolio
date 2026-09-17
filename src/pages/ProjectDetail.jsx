@@ -10,7 +10,7 @@ export default function ProjectDetail() {
     return (
       <div className="min-h-screen bg-gray-950 text-white">
         <Navbar />
-        <main className="max-w-4xl mx-auto px-4 py-20 text-center">
+        <main className="mx-auto max-w-4xl px-4 pb-20 pt-16 text-center sm:pb-24 sm:pt-20">
           <h1 className="text-4xl font-bold mb-4">Project not found</h1>
           <Link to="/" className="text-emerald-400 hover:underline">Back to homepage</Link>
         </main>
@@ -21,7 +21,7 @@ export default function ProjectDetail() {
   return (
     <div className="min-h-screen bg-gray-950 text-white">
       <Navbar />
-      <main className="max-w-4xl mx-auto px-4 py-20">
+      <main className="mx-auto max-w-4xl px-4 pb-20 pt-16 sm:pb-24 sm:pt-20">
         <Link to="/" className="text-emerald-400 hover:underline">&larr; Back to projects</Link>
         <article className="mt-8 bg-gray-800 p-8 rounded-xl border border-gray-700">
           <h1 className="text-4xl font-bold mb-4">{project.title}</h1>

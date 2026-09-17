@@ -17,16 +17,16 @@ const notes = [
 
 export default function Info() {
   return (
-    <section id="about" className="bg-gray-950 px-6 py-10 text-white">
+    <section id="about" className="bg-gray-950 px-6 pb-20 pt-16 text-white sm:pb-24 sm:pt-20">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-20">
-          <p className="mb-2 font-mono text-sm text-emerald-400">
+        <div className="mb-16 text-center">
+          <p className="mb-3 font-mono text-sm text-emerald-400">
             ~/portfolio/about
           </p>
 
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+          <h1 className="m-0 text-4xl font-bold tracking-tight md:text-6xl">
             About me
-          </h2>
+          </h1>
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[1fr_300px] lg:items-start">

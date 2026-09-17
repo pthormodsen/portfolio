@@ -103,16 +103,16 @@ function TimelineItem({ period, title, company, description }) {
 
 export default function Cv() {
   return (
-    <section className="min-h-screen bg-gray-950 px-6 pb-24 pt-32 text-white text-left">
+    <section className="min-h-screen bg-gray-950 px-6 pb-24 pt-16 text-left text-white sm:pt-20">
       <div className="mx-auto max-w-6xl">
 
         {/* Header */}
-        <div className="mb-20 text-center">
+        <div className="mb-16 text-center">
           <p className="mb-3 font-mono text-sm text-emerald-400">
             ~/portfolio/experience
           </p>
 
-          <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
+          <h1 className="m-0 text-4xl font-bold tracking-tight md:text-6xl">
             Experience
           </h1>
 

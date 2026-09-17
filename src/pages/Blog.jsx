@@ -14,12 +14,12 @@ export default function Blog() {
     <div className="min-h-screen bg-gray-950 text-white selection:bg-emerald-500 selection:text-gray-900">
       <Navbar />
 
-      <main className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
+      <main className="mx-auto max-w-5xl px-6 pb-20 pt-16 sm:pb-24 sm:pt-20">
         <section className="mx-auto max-w-3xl text-center">
           <p className="mb-3 font-mono text-sm  tracking-[0.22em] text-emerald-400">
             ./blog
           </p>
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+          <h1 className="m-0 text-4xl font-bold tracking-tight text-white sm:text-6xl">
             Notes from what I am building
           </h1>
         </section>
