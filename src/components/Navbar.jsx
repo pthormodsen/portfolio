@@ -14,7 +14,7 @@ export default function Navbar() {
 
         <Link
           to="/"
-          className="flex min-h-11 shrink-0 items-center gap-2 whitespace-nowrap text-green-400"
+          className="hidden min-h-11 shrink-0 items-center gap-2 whitespace-nowrap text-green-400 sm:flex"
         >
           <span className="text-gray-500">patrik@portfolio:</span>
           <span>~$</span>
@@ -28,6 +28,10 @@ export default function Navbar() {
 
           <NavLink to="/about" className={navClass}>
             ./about
+          </NavLink>
+
+          <NavLink to="/experience" className={navClass}>
+            ./experience
           </NavLink>
 
           <NavLink to="/blog" className={navClass}>
