@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section className="min-h-[55vh] flex flex-col justify-center items-center bg-gray-950 text-white text-center px-4 py-20">
+    <section className="flex min-h-[55vh] flex-col items-center justify-center bg-gray-950 px-4 pb-20 pt-16 text-center text-white sm:py-20">
 
-      <p className="font-mono text-sm md:text-base text-emerald-400 mb-4">
+      <p className="mb-3 font-mono text-sm text-emerald-400">
         ~/portfolio $ whoami
       </p>
 
-      <h1 className="text-5xl md:text-7xl font-extrabold mb-5 tracking-tight">
+      <h1 className="m-0 mb-5 text-4xl font-extrabold tracking-tight md:text-6xl">
         Patrik Thormodsen
       </h1>
 

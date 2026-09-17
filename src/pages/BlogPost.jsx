@@ -24,7 +24,7 @@ export default function BlogPost() {
   return (
     <div className="min-h-screen bg-gray-950 text-white selection:bg-emerald-500 selection:text-gray-900">
       <Navbar />
-      <main className="mx-auto max-w-3xl px-6 py-16 text-left">
+      <main className="mx-auto max-w-3xl px-6 pb-20 pt-16 text-left sm:pb-24 sm:pt-20">
         <Link to="/blog" className="text-sm text-emerald-400 hover:underline focus-visible:outline-2 focus-visible:outline-emerald-400">
           &larr; Back to blog
         </Link>
