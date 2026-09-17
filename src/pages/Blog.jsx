@@ -15,7 +15,7 @@ export default function Blog() {
 
       <main className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
         <section className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 font-mono text-sm uppercase tracking-[0.22em] text-emerald-400">
+          <p className="mb-3 font-mono text-sm  tracking-[0.22em] text-emerald-400">
             ./blog
           </p>
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
