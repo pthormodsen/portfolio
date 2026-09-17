@@ -1,29 +1,20 @@
 export const blogPosts = [
   {
-    id: "homelab-notes",
-    title: "Homelab notes",
-    date: "2026-09-16",
-    status: "Draft",
-    tags: ["Homelab", "Networking", "Learning"],
+    id: "building-my-first-proxmox-homelab",
+    title: "Building My First Proxmox Home Lab",
+    date: "2026-09-17",
+    status: "Published",
+    tags: ["Homelab", "Proxmox", "Linux"],
     excerpt:
-      "A place to collect what I am trying, what broke, and what I learned while building things at home.",
+      "How I turned a used office PC into a Proxmox server for running virtual machines, Docker containers, and my own services.",
   },
   {
-    id: "portfolio-build-log",
-    title: "Building this portfolio",
-    date: "2026-09-12",
-    status: "Idea",
-    tags: ["React", "Portfolio"],
+    id: "fedora-ethernet-driver-fix",
+    title: "Dual Booting Fedora and Fixing My Ethernet Connection",
+    date: "2026-09-17",
+    status: "Published",
+    tags: ["Fedora", "Linux", "Networking"],
     excerpt:
-      "Notes about small design decisions, deployment fixes, and features I want to add next.",
-  },
-  {
-    id: "things-i-am-testing",
-    title: "Things I am testing",
-    date: "2026-09-01",
-    status: "Idea",
-    tags: ["Experiments", "Projects"],
-    excerpt:
-      "Short writeups for tools, libraries, and project ideas I want to try before turning them into full projects.",
+      "My Ethernet connection kept dropping to 100 or even 10 Mbps. Here is what I tried and how replacing the driver finally fixed it.",
   },
 ];

@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import { Link } from "react-router-dom";
 import { blogPosts } from "../data/blogPosts";
 
 const formatDate = (date) =>
@@ -21,17 +22,13 @@ export default function Blog() {
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
             Notes from what I am building
           </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-300">
-            A simple place for experiments, lessons learned, build logs, and
-            small things I want to remember while working on projects.
-          </p>
         </section>
 
         <section className="mt-16 border-t border-gray-800">
           <div className="flex items-center justify-between gap-4 py-6">
             <h2 className="text-2xl font-semibold text-white">Latest posts</h2>
             <span className="font-mono text-sm text-gray-500">
-              {blogPosts.length} drafts
+              {blogPosts.length} posts
             </span>
           </div>
 
@@ -39,8 +36,9 @@ export default function Blog() {
             {blogPosts.map((post) => (
               <article
                 key={post.id}
-                className="rounded-lg border border-gray-800 bg-gray-900/60 p-6 text-left transition hover:border-emerald-400/60 hover:bg-gray-900"
+                className="rounded-lg border border-gray-800 bg-gray-900/60 text-left transition hover:border-emerald-400/60 hover:bg-gray-900"
               >
+                <Link to={`/blog/${post.id}`} className="block rounded-lg p-6 focus-visible:outline-2 focus-visible:outline-emerald-400">
                 <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400">
                   <time dateTime={post.date}>{formatDate(post.date)}</time>
                   <span className="h-1 w-1 rounded-full bg-gray-600" />
@@ -64,6 +62,8 @@ export default function Blog() {
                     </span>
                   ))}
                 </div>
+                <span className="mt-5 block text-sm text-emerald-400">Read post &rarr;</span>
+                </Link>
               </article>
             ))}
           </div>

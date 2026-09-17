@@ -15,9 +15,9 @@ const notes = [
 
 export default function Info() {
   return (
-    <section id="about" className="bg-gray-950 px-6 py-20 text-white">
+    <section id="about" className="bg-gray-950 px-6 py-10 text-white">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-10">
+        <div className="mb-20">
           <p className="mb-2 font-mono text-sm text-emerald-400">
             ~/portfolio/about
           </p>
@@ -27,20 +27,33 @@ export default function Info() {
           </h2>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-2">
-          <p className="text-lg leading-8 text-gray-400">
-            I am currently studying computer engineering and use this website
-            to showcase some of the projects I have built. I enjoy programming
-            and spend a lot of my free time working on personal projects and
-            trying out new technologies.
-          </p>
+        <div className="grid gap-10 lg:grid-cols-[1fr_300px] lg:items-start">
+          <div className="space-y-6">
+            <p className="text-lg leading-8 text-gray-400">
+              I am currently studying computer engineering and use this website
+              to showcase some of the projects I have built. I enjoy programming
+              and spend a lot of my free time working on personal projects and
+              trying out new technologies.
+            </p>
 
-          <p className="text-lg leading-8 text-gray-400">
-            I mostly work with Java, Springboot and React but I also enjoy building
-            full-stack applications and learning how the different parts fit
-            together. I prefer learning by actually building things and getting
-            them running using my homelab.
-          </p>
+            <p className="text-lg leading-8 text-gray-400">
+              I mostly work with Java, Spring Boot and React, but I also enjoy
+              building full-stack applications and learning how the different
+              parts fit together. I prefer learning by actually building things
+              and getting them running using my homelab.
+            </p>
+          </div>
+
+          <img
+            src="src/assets/patrik.png"
+            alt="Patrik"
+            width={300}
+            height={300}
+            loading="lazy"
+            decoding="async"
+            fetchPriority="low"
+            className="aspect-square w-full rounded-lg object-cover"
+          />
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-3">

@@ -22,12 +22,12 @@ export default function Hero() {
       </p>
 
       <div className="flex flex-wrap justify-center gap-4 mt-8">
-        <Link
-          to="/projects"
+        <a
+          href="#projects"
           className="bg-emerald-400 text-gray-950 font-semibold px-6 py-3 rounded-md hover:bg-emerald-300 transition"
         >
           View Projects
-        </Link>
+        </a>
 
         <Link
           to="/about"
