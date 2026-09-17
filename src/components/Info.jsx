@@ -1,3 +1,5 @@
+import patrik from "../assets/patrik.png";
+
 const notes = [
   {
     title: "Education",
@@ -45,7 +47,7 @@ export default function Info() {
           </div>
 
           <img
-            src="src/assets/patrik.png"
+            src={patrik}
             alt="Patrik"
             width={300}
             height={300}
