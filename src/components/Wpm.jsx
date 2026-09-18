@@ -186,6 +186,7 @@ export default function Wpm() {
           <p className="mt-3 max-w-2xl text-gray-400">
             Give the typing test a try and see where you end up on the leaderboard.
             The wpm test is a short {game?.duration ?? 15} seconds typing challenge that measures your typing speed and accuracy.
+            <br/><br/>(The text is fixed so that it is fair for all players participating)
           </p>
         </div>
 
