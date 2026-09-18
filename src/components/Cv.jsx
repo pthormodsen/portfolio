@@ -77,6 +77,24 @@ const technologies = {
   ],
 };
 
+const volunteer = [
+  {
+    period: "2025 — 2026",
+    title: "Deputy Leader",
+    company: "Fribyte",
+    description:
+      "Served as deputy leader in Fribyte, a student-run organization focused on IT infrastructure and services.",
+  },
+
+  {
+    period: "2024 — 2026",
+    title: "Secretary",
+    company: "Root",
+    description:
+      "Served on the board of Root, the student association for computer engineering students at Western Norway University of Applied Sciences.",
+  },
+];
+
 function TimelineItem({ period, title, company, description }) {
   return (
     <div className="relative border-l border-gray-800 pl-6">
@@ -149,11 +167,31 @@ export default function Cv() {
           </p>
 
           <h2 className="mb-10 text-3xl font-bold">
-            Experience
+            Work
           </h2>
 
           <div className="space-y-10">
             {experience.map((item) => (
+              <TimelineItem
+                key={`${item.title}-${item.company}`}
+                {...item}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* volunteer */}
+        <div className="mb-30">
+          <p className="mb-2 font-mono text-sm text-emerald-400">
+            ./volunteer
+          </p>
+
+          <h2 className="mb-10 text-3xl font-bold">
+            Volunteer
+          </h2>
+
+          <div className="space-y-10">
+            {volunteer.map((item) => (
               <TimelineItem
                 key={`${item.title}-${item.company}`}
                 {...item}

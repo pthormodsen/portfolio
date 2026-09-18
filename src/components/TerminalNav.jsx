@@ -23,11 +23,13 @@ const COMMAND_ALIASES = {
   posts: "blog",
   writing: "blog",
 
+  "#projects": "projects",
   projects: "projects",
   project: "projects",
   work: "projects",
   portfolio: "projects",
 
+  "#contact": "contact",
   contact: "contact",
   email: "contact",
   mail: "contact",
