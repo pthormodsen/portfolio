@@ -65,7 +65,7 @@ createServer(async (request, response) => {
       accuracy: Math.round(correct / text.length * 100),
     };
     if (!result.wpm) return send(400, { error: "Type some correct characters before saving." });
-    const next = [...scores, result].sort((a, b) => b.wpm - a.wpm || b.accuracy - a.accuracy).slice(0, 10);
+    const next = [...scores, result].sort((a, b) => b.wpm - a.wpm || b.accuracy - a.accuracy);
     // Synchronous, atomic writes keep this small single-process server simple.
     try {
       writeFileSync(`${FILE}.tmp`, JSON.stringify(next, null, 2));
