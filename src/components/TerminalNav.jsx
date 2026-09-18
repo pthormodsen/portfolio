@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const COMMAND_ALIASES = {
+const COMMAND_ALIASES = { 
   ".": "home",
   "..": "home",
   "/": "home",
@@ -9,6 +9,7 @@ const COMMAND_ALIASES = {
   home: "home",
   index: "home",
   start: "home",
+  cd: "home",
 
   about: "about",
   me: "about",
