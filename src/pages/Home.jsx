@@ -3,6 +3,7 @@ import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Navbar from "../components/Navbar";
 import Wpm from "../components/Wpm";
+import FeaturedProjects from "../components/FeaturedProjects";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
 
       <main>
         <Hero />
+        <FeaturedProjects />
         <Projects />
         <Wpm />
         <Contact />
