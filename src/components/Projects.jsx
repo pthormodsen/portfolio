@@ -33,11 +33,6 @@ export default function Projects() {
                 to={`/projects/${project.slug}`}
                 className="block"
               >
-                {/* Fake terminal path
-                <p className="mb-3 font-mono text-xs text-gray-600">
-                  ~/projects/{project.slug}
-                </p>
-                */}
                 <h3 className="mb-3 text-2xl font-semibold transition-colors group-hover:text-emerald-400">
                   {project.title}
                 </h3>
@@ -60,7 +55,8 @@ export default function Projects() {
               </Link>
 
               {/* Links */}
-              {(project.liveLink ||
+              {(project.demoLink ||
+                project.liveLink ||
                 project.github ||
                 project.githubLinks?.length > 0) && (
                 <div className="mt-6 flex flex-wrap gap-5 border-t border-gray-800 pt-4 text-sm justify-center">

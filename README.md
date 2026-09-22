@@ -23,6 +23,22 @@ Leaderboard scores are stored in the `leaderboard-dev-data` Docker volume. Stop 
 docker compose -f docker-compose.dev.yml down
 ```
 
+## Public Demo Links
+
+Project cards can expose a separate `demoLink` in `src/data/projects.js`.
+Use this for recruiter-friendly versions that load example data and avoid
+forcing visitors to create an account.
+
+For apps that normally require login, the portfolio uses a shared convention:
+
+```txt
+https://example.patreek.no?demo=true
+```
+
+Each app should detect `demo=true`, seed browser-safe example data, and keep demo
+changes isolated from real user accounts. Apps that are already browser-only can
+point `demoLink` at the normal live site.
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)

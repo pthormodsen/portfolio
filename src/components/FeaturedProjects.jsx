@@ -57,7 +57,7 @@ export default function FeaturedProjects() {
                   </p>
 
                   <div className="mt-5 flex flex-wrap gap-2">
-                    {project.tech.slice(0, 4).map((tech) => (
+                    {project.tech.slice(0, 3).map((tech) => (
                       <span
                         key={tech}
                         className="rounded border border-gray-700 bg-gray-950 px-2 py-1 font-mono text-xs text-gray-400"
@@ -69,7 +69,7 @@ export default function FeaturedProjects() {
                 </div>
               </Link>
 
-              <div className="flex flex-wrap gap-4 border-t border-gray-800 px-5 py-4 text-sm">
+              <div className="flex flex-wrap gap-4 border-t border-gray-800 px-5 py-4 text-sm justify-center">
                 {project.liveLink && (
                   <a
                     href={project.liveLink}
