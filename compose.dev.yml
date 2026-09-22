@@ -1,5 +1,5 @@
 services:
-  portfolio-dev:
+  portfolio:
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -7,15 +7,15 @@ services:
     ports:
       - "5173:5173"
     environment:
-      VITE_API_PROXY_TARGET: http://leaderboard-dev:3001
+      VITE_API_PROXY_TARGET: http://leaderboard:3001
       CHOKIDAR_USEPOLLING: "true"
     volumes:
       - .:/app
       - portfolio-dev-node-modules:/app/node_modules
     depends_on:
-      - leaderboard-dev
+      - leaderboard
 
-  leaderboard-dev:
+  leaderboard:
     build: ./server
     container_name: leaderboard-dev
     ports:

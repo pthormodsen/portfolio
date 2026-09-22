@@ -1,6 +1,6 @@
 services:
   portfolio:
-    build: .
+    image: ghcr.io/pthormodsen/portfolio-web:latest
     container_name: portfolio
     restart: unless-stopped
     depends_on:
@@ -10,8 +10,10 @@ services:
       - default
 
   leaderboard:
-    build: ./server
+    image: ghcr.io/pthormodsen/portfolio-leaderboard:latest
     restart: unless-stopped
+    environment:
+      SCORES_FILE: /data/scores.json
     volumes:
       - leaderboard-data:/data
 
