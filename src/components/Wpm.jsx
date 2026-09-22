@@ -1,5 +1,27 @@
 import { useEffect, useRef, useState } from "react";
 
+const LOCAL_DEMO_SCORES = [
+  { id: "demo-1", name: "Patrik", wpm: 120, accuracy: 99 },
+  { id: "demo-2", name: "Patrik", wpm: 111, accuracy: 100 },
+  { id: "demo-3", name: "Simon", wpm: 110, accuracy: 95 },
+  { id: "demo-4", name: "Patrik", wpm: 109, accuracy: 99 },
+  { id: "demo-5", name: "Trym", wpm: 104, accuracy: 100 },
+  { id: "demo-6", name: "nheek", wpm: 103, accuracy: 100 },
+  { id: "demo-7", name: "Stian", wpm: 101, accuracy: 97 },
+  { id: "demo-8", name: "Patrik phone", wpm: 78, accuracy: 97 },
+  { id: "demo-9", name: "Simon", wpm: 57, accuracy: 100 },
+  { id: "demo-10", name: "William with a long name", wpm: 49, accuracy: 95 },
+  { id: "demo-11", name: "Nora", wpm: 46, accuracy: 92 },
+  { id: "demo-12", name: "Andreas", wpm: 44, accuracy: 90 },
+  { id: "demo-13", name: "Local test user", wpm: 41, accuracy: 88 },
+  { id: "demo-14", name: "Keyboard enjoyer", wpm: 38, accuracy: 86 },
+  { id: "demo-15", name: "Debug runner", wpm: 35, accuracy: 84 },
+];
+
+const isLocalPreview = () =>
+  typeof window !== "undefined" &&
+  ["localhost", "127.0.0.1"].includes(window.location.hostname);
+
 async function api(path, body) {
   const response = await fetch(`/api/wpm/${path}`, body
     ? {
@@ -20,7 +42,9 @@ async function api(path, body) {
 }
 
 export default function Wpm() {
-  const [scores, setScores] = useState([]);
+  const [scores, setScores] = useState(() =>
+    isLocalPreview() ? LOCAL_DEMO_SCORES : []
+  );
   const [game, setGame] = useState(null);
   const [text, setText] = useState("");
   const [seconds, setSeconds] = useState(15);
@@ -38,9 +62,21 @@ export default function Wpm() {
   const caret = useRef(null);
 
   useEffect(() => {
+    const showDemoScores = isLocalPreview();
+
     api("scores")
-      .then(setScores)
-      .catch(() => setError("Leaderboard unavailable."));
+      .then((serverScores) => {
+        setScores(
+          showDemoScores && serverScores.length === 0
+            ? LOCAL_DEMO_SCORES
+            : serverScores
+        );
+      })
+      .catch(() => {
+        if (!showDemoScores) {
+          setError("Leaderboard unavailable.");
+        }
+      });
 
     api("config")
       .then((config) => {
@@ -174,7 +210,7 @@ export default function Wpm() {
     <section className="bg-gray-950 px-4 py-20 text-white">
       <div className="mx-auto max-w-5xl">
 
-        <div className="mb-10 display:flex text-left">
+        <div className="mb-10 text-left">
           <p className="mb-2 font-mono text-sm text-emerald-400">
             ~/portfolio/typing-test
           </p>
@@ -190,7 +226,7 @@ export default function Wpm() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-[minmax(0,1fr)_280px]">
+        <div className="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_18rem] lg:grid-cols-[minmax(0,1fr)_20rem]">
 
           {/* Typing area */}
           <div className="min-w-0">
@@ -410,7 +446,7 @@ export default function Wpm() {
           </div>
 
           {/* Leaderboard */}
-          <aside className="min-w-0 rounded-xl border border-gray-800 bg-gray-900/40 p-5 w-full h-full">
+          <aside className="min-w-0 w-full self-start rounded-xl border border-gray-800 bg-gray-900/40 p-4 lg:-mt-8 lg:p-5">
 
             <div className="mb-4 flex items-center justify-between">
               <h3 className="text-lg font-semibold">
@@ -418,54 +454,44 @@ export default function Wpm() {
               </h3>
 
               <span className="font-mono text-xs text-gray-500">
-                top {scores.length}
+                {scores.length} scores
               </span>
             </div>
 
-            <table className="w-full text-sm">
-              <thead className="border-b border-gray-700 text-gray-500">
-                <tr>
-                  <th className="pb-3 text-left font-medium">
-                    Name
-                  </th>
+            <div className="grid grid-cols-[minmax(0,1fr)_3.5rem_3rem] gap-2 border-b border-gray-700 px-2 pb-2 text-xs font-medium text-gray-500">
+              <span>Name</span>
+              <span className="text-right">WPM</span>
+              <span className="text-right">Acc.</span>
+            </div>
 
-                  <th className="pb-3 text-right font-medium">
-                    WPM
-                  </th>
-
-                  <th className="pb-3 text-right font-medium">
-                    Acc.
-                  </th>
-                </tr>
-              </thead>
-
-              <tbody>
+            {scores.length > 0 ? (
+              <div className="max-h-80 overflow-y-auto pr-1">
                 {scores.map((score, index) => (
-                  <tr
+                  <div
                     key={score.id}
-                    className="border-b border-gray-800 last:border-0"
+                    className="grid grid-cols-[minmax(0,1fr)_3.5rem_3rem] gap-2 border-b border-gray-800 px-2 py-2.5 text-sm last:border-0"
                   >
-                    <td className="max-w-[120px] truncate py-3 pr-3">
-                      <span className="mr-2 font-mono text-gray-600">
+                    <div className="flex min-w-0 items-center">
+                      <span className="mr-2 w-6 shrink-0 text-right font-mono text-gray-600">
                         {index + 1}.
                       </span>
 
-                      {score.name}
-                    </td>
+                      <span className="truncate">
+                        {score.name}
+                      </span>
+                    </div>
 
-                    <td className="py-3 text-right font-mono text-emerald-400">
+                    <span className="text-right font-mono tabular-nums text-emerald-400">
                       {score.wpm}
-                    </td>
+                    </span>
 
-                    <td className="py-3 text-right font-mono text-gray-400">
+                    <span className="text-right font-mono tabular-nums text-gray-400">
                       {score.accuracy}%
-                    </td>
-                  </tr>
+                    </span>
+                  </div>
                 ))}
-              </tbody>
-            </table>
-
-            {scores.length === 0 && (
+              </div>
+            ) : (
               <div className="py-8 text-center">
                 <p className="font-mono text-sm text-gray-500">
                   No scores yet.
