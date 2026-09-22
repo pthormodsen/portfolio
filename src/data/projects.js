@@ -91,7 +91,7 @@ export const projects = [
     description: "A Spring Boot task manager with user authentication, task CRUD, validation, PostgreSQL persistence, local H2 support, email reminders, and Docker deployment.",
     tech: ["Java", "Spring Boot", "Spring Security", "PostgreSQL", "H2", "Docker"],
     liveLink: "https://todo.patreek.no",
-    demoLink: "https://todo.patreek.no?demo=true",
+    demoLink: "https://todo.patreek.no/demo",
     demoDescription: "Open with sample tasks and a browser-only demo session, no account required.",
     github: "https://github.com/pthormodsen/TODOListSpringBoot",
     images: todoPictures
@@ -126,7 +126,7 @@ export const projects = [
     description: "A full-stack project management system with a React/TypeScript Kanban board and a Spring Boot REST API for users, projects, and tasks.",
     tech: ["React", "TypeScript", "Tailwind CSS", "Spring Boot", "Spring Data JPA", "H2"],
     liveLink: "https://projectmanager.patreek.no",
-    demoLink: "https://projectmanager.patreek.no?demo=true",
+    demoLink: "https://projectmanager.patreek.no/demo",
     demoDescription: "Open a seeded Kanban workspace with example projects and tasks, no login required.",
     github: "https://github.com/pthormodsen/Projectmanager",
   },
@@ -137,7 +137,7 @@ export const projects = [
     description: "A full-stack quiz application with a React/TypeScript frontend and Spring Boot REST API for creating quizzes, adding questions, and storing quiz data in H2.",
     tech: ["React", "TypeScript", "Spring Boot", "Spring Data JPA", "H2"],
     liveLink: "https://quiz.patreek.no/login",
-    demoLink: "https://quiz.patreek.no?demo=true",
+    demoLink: "https://quiz.patreek.no/demo",
     demoDescription: "Try a seeded quiz dashboard and sample quiz flow without creating a user.",
     github: "https://github.com/pthormodsen/QuizApp"
   }

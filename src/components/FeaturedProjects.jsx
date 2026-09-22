@@ -70,17 +70,6 @@ export default function FeaturedProjects() {
               </Link>
 
               <div className="flex flex-wrap gap-4 border-t border-gray-800 px-5 py-4 text-sm justify-center">
-                {project.demoLink && (
-                  <a
-                    href={project.demoLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-mono text-emerald-300 transition hover:text-emerald-200"
-                  >
-                    try demo
-                  </a>
-                )}
-
                 {project.liveLink && (
                   <a
                     href={project.liveLink}

@@ -60,17 +60,6 @@ export default function Projects() {
                 project.github ||
                 project.githubLinks?.length > 0) && (
                 <div className="mt-6 flex flex-wrap gap-5 border-t border-gray-800 pt-4 text-sm justify-center">
-                  {project.demoLink && (
-                    <a
-                      href={project.demoLink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="font-mono text-emerald-300 transition hover:text-emerald-200"
-                    >
-                      ↗ try demo
-                    </a>
-                  )}
-
                   {project.liveLink && (
                     <a
                       href={project.liveLink}
