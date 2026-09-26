@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
 
-const featuredSlugs = ["todo-list", "chess", "wpm"];
+const featuredSlugs = ["chess", "wpm", "todo-list"];
 
 export default function FeaturedProjects() {
   const featuredProjects = featuredSlugs
@@ -21,8 +21,7 @@ export default function FeaturedProjects() {
           </h2>
 
           <p className="max-w-2xl text-gray-400">
-            The projects I would show first: a task manager, a chess app, and a
-            typing test focused on speed and accuracy.
+            Here are some off my featured projects displayed.
           </p>
         </div>
 

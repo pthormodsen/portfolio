@@ -25,77 +25,22 @@ const wpmImages = import.meta.glob(
   }
 );
 
+const esp32Images = import.meta.glob(
+  "../assets/projects/esp32/*.{png,jpg,jpeg,webp}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }
+);
+
 const todoPictures = Object.values(todoImages);
 const chessPictures = Object.values(chessImages);
 const wpmPictures = Object.values(wpmImages);
+const esp32Pictures = Object.values(esp32Images);
 
-{/* 
-export const projects = [
-  {
-    slug: "todo-list",
-    title: "TODO List",
-    description: "A full-stack task management application with user authentication, task management, and persistent storage.",
-    tech: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
-    liveLink: "https://todo.patreek.no",
-    github: "https://github.com/pthormodsen/TODOListSpringBoot",
-    images: todoPictures
-  },
-  {
-    slug: "chess",
-    title: "Chess",
-    description: "A chess application featuring legal move validation, drag-and-drop gameplay, game analysis, and Stockfish integration.",
-    tech: ["Java", "Swing", "Stockfish"],
-    liveLink: "https://chess.patreek.no",
-    github: "https://github.com/pthormodsen/Chess",
-    images: chessPictures
-  },
-  {
-    slug: "project-manager",
-    title: "Project Manager",
-    description: "A full-stack project management application with a Kanban-style interface for organizing projects and tasks.",
-    tech: ["React", "TypeScript", "Spring Boot", "PostgreSQL"],
-    liveLink: "",
-    github: ""
-  },
-  {
-    slug: "registration-system",
-    title: "Registration System",
-    description: "A web application for registering participants and managing participant lists with server-side validation.",
-    tech: ["Java", "Spring Boot", "JSP", "PostgreSQL"],
-    liveLink: "",
-    github: ""
-  },
-  {
-    slug: "quiz-app",
-    title: "Quiz App",
-    description: "A full-stack quiz application for creating quizzes and answering questions through a React frontend and REST API.",
-    tech: ["React", "TypeScript", "Spring Boot", "H2"],
-    liveLink: "",
-    github: ""
-  },
-  {
-    slug: "python-chess-engine",
-    title: "Python Chess Engine",
-    description: "A chess game built from scratch in Python, with move generation and a foundation for implementing a chess AI.",
-    tech: ["Python", "Pygame"],
-    liveLink: "",
-    github: ""
-  }
-];
-*/}
 
 export const projects = [
-  {
-    slug: "todo-list",
-    title: "TODO List",
-    description: "A Spring Boot task manager with user authentication, task CRUD, validation, PostgreSQL persistence, local H2 support, email reminders, and Docker deployment.",
-    tech: ["Java", "Spring Boot", "Spring Security", "PostgreSQL", "H2", "Docker"],
-    liveLink: "https://todo.patreek.no",
-    demoLink: "https://todo.patreek.no/demo",
-    demoDescription: "Open with sample tasks and a browser-only demo session, no account required.",
-    github: "https://github.com/pthormodsen/TODOListSpringBoot",
-    images: todoPictures
-  },
   {
     slug: "chess",
     title: "Chess",
@@ -103,11 +48,9 @@ export const projects = [
     tech: ["Java", "Spring Boot", "React", "Vite", "WebSocket", "Stockfish"],
     liveLink: "https://chess.patreek.no",
     demoLink: "https://chess.patreek.no",
-    demoDescription: "Play immediately in the browser with no login or setup.",
     github: "https://github.com/pthormodsen/Chess",
     images: chessPictures
   },
-
   {
     slug: "wpm",
     title: "WPM Typing Test",
@@ -115,11 +58,19 @@ export const projects = [
     tech: ["React", "TypeScript", "Tailwind CSS"],
     liveLink: "https://wpm.patreek.no",
     demoLink: "https://wpm.patreek.no",
-    demoDescription: "Start a typing test directly in the browser with example text loaded.",
     github: "https://github.com/pthormodsen/wpm-typing-app",
     images: wpmPictures
   },
-
+  {
+    slug: "todo-list",
+    title: "TODO List",
+    description: "A Spring Boot task manager with user authentication, task CRUD, validation, PostgreSQL persistence, local H2 support, email reminders, and Docker deployment.",
+    tech: ["Java", "Spring Boot", "Spring Security", "PostgreSQL", "H2", "Docker"],
+    liveLink: "https://todo.patreek.no",
+    demoLink: "https://todo.patreek.no/demo",
+    github: "https://github.com/pthormodsen/TODOListSpringBoot",
+    images: todoPictures
+  },
   {
     slug: "project-manager",
     title: "Project Manager",
@@ -127,7 +78,6 @@ export const projects = [
     tech: ["React", "TypeScript", "Tailwind CSS", "Spring Boot", "Spring Data JPA", "H2"],
     liveLink: "https://projectmanager.patreek.no",
     demoLink: "https://projectmanager.patreek.no/demo",
-    demoDescription: "Open a seeded Kanban workspace with example projects and tasks, no login required.",
     github: "https://github.com/pthormodsen/Projectmanager",
   },
 
@@ -138,7 +88,17 @@ export const projects = [
     tech: ["React", "TypeScript", "Spring Boot", "Spring Data JPA", "H2"],
     liveLink: "https://quiz.patreek.no/login",
     demoLink: "https://quiz.patreek.no/demo",
-    demoDescription: "Try a seeded quiz dashboard and sample quiz flow without creating a user.",
     github: "https://github.com/pthormodsen/QuizApp"
+  },
+
+  {
+  slug: "trafficESP",
+  title: "ESP32 Traffic Display",
+  description: "Real time nearby traffic incidents displayed on an ESP32 using Norwegian DATEX traffic data.",
+  tech: ["ESP32", "C++", "FastAPI", "Python", "DATEX II", "Docker", "Wokwi"],
+  liveLink: "",
+  demoLink: "",
+  github: "https://github.com/pthormodsen/TrafficESP32",
+  images: esp32Pictures,
   }
 ];
