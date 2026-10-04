@@ -2,7 +2,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaInstagram } from "react-ic
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-gray-950 px-6 py-24 text-white">
+    <section id="contact" className="bg-gray-950 px-6 py-10 text-white">
       <div className="mx-auto max-w-4xl text-center">
         <p className="mb-2 font-mono text-sm text-emerald-400">
           ~/portfolio/contact

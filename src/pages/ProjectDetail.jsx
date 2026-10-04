@@ -78,7 +78,7 @@ export default function ProjectDetail() {
       <Navbar />
       <main className="mx-auto max-w-5xl px-4 pb-20 pt-16 sm:px-6 sm:pb-24 sm:pt-20">
         <Link
-          to="/"
+          to="/#projects"
           className="font-mono text-sm text-emerald-400 transition hover:text-emerald-300"
         >
           &larr; Back to projects
@@ -182,7 +182,14 @@ export default function ProjectDetail() {
               )}
             </div>
           )}
+          <Link
+          to="/#projects"
+          className="mt-2 font-mono text-sm text-emerald-400 transition hover:text-emerald-300"
+        >
+          &larr; Back to projects
+        </Link>
         </article>
+    
       </main>
     </div>
   );
