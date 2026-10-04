@@ -38,7 +38,8 @@ export default function Navbar() {
 
           <Link to="/#projects"
           onClick={scrollToSection("projects")}
-          className={`${linkBase} text-gray-400 hover:text-white`}>
+          // Hidden on phones so the links fit on one row; projects are reachable from the home page.
+          className={`${linkBase.replace("inline-flex", "hidden sm:inline-flex")} text-gray-400 hover:text-white`}>
             ./projects
           </Link>
 
