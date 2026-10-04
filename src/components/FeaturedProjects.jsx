@@ -21,7 +21,7 @@ export default function FeaturedProjects() {
           </h2>
 
           <p className="max-w-2xl text-gray-400">
-            Here are some off my featured projects displayed.
+            A selection of projects I am most proud of.
           </p>
         </div>
 

@@ -1,4 +1,4 @@
-import patrik from "../assets/patrik.png";
+import patrik from "../assets/patrik.webp";
 
 const notes = [
   {

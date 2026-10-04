@@ -98,7 +98,7 @@ const volunteer = [
 function TimelineItem({ period, title, company, description }) {
   return (
     <div className="relative border-l border-gray-800 pl-6">
-      <span className="absolute -left-[5px] top-2 h-2 w-2 rounded-full bg-emerald-400" />
+      <span className="absolute -left-1.25 top-2 h-2 w-2 rounded-full bg-emerald-400" />
 
       <p className="mb-1 font-mono text-sm text-emerald-400">
         {period}
@@ -138,6 +138,14 @@ export default function Cv() {
             A timeline of what I have worked on, studied, and learned along
             the way.
           </p>
+
+          <a
+            href="/PatrikCV.pdf"
+            download="Patrik-Thormodsen-CV.pdf"
+            className="mt-8 inline-block rounded-md border border-gray-700 px-6 py-3 font-mono text-sm text-gray-300 transition hover:border-emerald-400 hover:text-emerald-400"
+          >
+            ./download-cv.pdf
+          </a>
         </div>
 
         {/* Education */}

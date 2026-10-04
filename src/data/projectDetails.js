@@ -155,4 +155,38 @@ export const projectDetails = {
       "Make the location and radius configurable instead of fixed to Bergen.",
     ],
   },
+
+  SeatSense: {
+    overview: [
+      "A system for showing real-time seat availability in university study spaces. Radar sensors detect whether individual seats are occupied, while a web application lets students explore buildings, floors, rooms, and available seats.",
+      "The project combines embedded hardware with a React frontend and a backend API, with MazeMap used for navigating the campus and selecting rooms.",
+    ],
+    highlights: [
+      "Interactive campus and floor navigation using MazeMap, with rooms selectable directly from the map.",
+      "Room views show individual seats and their current state: available, occupied, unknown, or offline.",
+      "HLK-LD2410C mmWave radar sensors detect presence without requiring cameras or identifying individual students.",
+      "The system is designed so one ESP32 can collect data from multiple seat sensors and report their state to the backend.",
+    ],
+    technical: [
+      "The frontend is built with React, TypeScript, Vite, and Tailwind CSS. MazeMap handles campus navigation, while SeatSense provides its own room layouts and seat-level information.",
+      "MazeMap room features are mapped to SeatSense room data so clicking a room on the campus map opens the corresponding room and its seats.",
+      "Each room has a configurable layout containing boundaries, desks, doors, whiteboards, and seat positions, rendered as an interactive room map.",
+      "The hardware prototype uses an ESP32-S3 with HLK-LD2410C mmWave presence sensors. Sensor communication and behaviour can be tested in Wokwi before deploying to physical hardware.",
+    ],
+    challenges: [
+      "MazeMap and SeatSense represent rooms differently, so a reliable mapping layer was needed between MazeMap's floor and room identifiers and the application's own room data.",
+      "Presence detection is more complicated than simply detecting movement. The radar sensor must distinguish between an occupied seat, movement elsewhere in the room, and an empty seat without producing constant false positives.",
+      "The system also needs to scale beyond a prototype. Instead of treating each sensor as an isolated device, the hardware and backend are being designed around multiple sensors per ESP32 and many sensor nodes across a building.",
+    ],
+    learned: [
+      "Combining physical sensors with a web application introduced problems that don't appear in purely software projects, such as sensor placement, noisy measurements, hardware communication, and device failures.",
+      "Keeping MazeMap responsible for campus navigation and SeatSense responsible for seat-level data created a cleaner separation than trying to reproduce the entire building map ourselves.",
+    ],
+    nextSteps: [
+      "Connect the frontend to live sensor data instead of example room data.",
+      "Build and test the multi-sensor ESP32 prototype on physical hardware.",
+      "Add historical occupancy data so students can see when rooms are usually busy.",
+      "Add tools for reporting faulty or offline sensors.",
+    ],
+  },
 };

@@ -13,12 +13,11 @@ export default function Hero() {
       </h1>
 
       <p className="text-xl md:text-2xl text-gray-300 mb-3">
-        Computer Engineering Student & Developer
+        Computer Engineering Student - Software Developer
       </p>
 
       <p className="text-base md:text-lg text-gray-500 max-w-2xl leading-relaxed">
-        I enjoy building software, exploring new technologies,
-        and turning ideas into real projects.
+        Third year computer engineering student at HVL, focused on software development, backend systems and self-hosted applications.
       </p>
 
       <div className="flex flex-wrap justify-center gap-4 mt-8">
@@ -35,6 +34,14 @@ export default function Hero() {
         >
           About Me
         </Link>
+
+        <a
+          href="/PatrikCV.pdf"
+          download="Patrik-Thormodsen-CV.pdf"
+          className="border border-gray-700 text-gray-300 px-6 py-3 rounded-md hover:border-gray-500 hover:text-white transition"
+        >
+          Download CV
+        </a>
       </div>
 
       <div className="mt-10 font-mono text-sm text-gray-600">

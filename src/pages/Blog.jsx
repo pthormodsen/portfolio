@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import { blogPosts } from "../data/blogPosts";
 
@@ -11,64 +10,61 @@ const formatDate = (date) =>
 
 export default function Blog() {
   return (
-    <div className="min-h-screen bg-gray-950 text-white selection:bg-emerald-500 selection:text-gray-900">
-      <Navbar />
+    <main className="mx-auto max-w-5xl px-6 pb-20 pt-16 sm:pb-24 sm:pt-20">
+      <title>Blog – Patrik Thormodsen</title>
+      <section className="mx-auto max-w-3xl text-center">
+        <p className="mb-3 font-mono text-sm  tracking-[0.22em] text-emerald-400">
+          ./blog
+        </p>
+        <h1 className="m-0 text-4xl font-bold tracking-tight text-white sm:text-6xl">
+          Notes from what I am building
+        </h1>
+      </section>
 
-      <main className="mx-auto max-w-5xl px-6 pb-20 pt-16 sm:pb-24 sm:pt-20">
-        <section className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 font-mono text-sm  tracking-[0.22em] text-emerald-400">
-            ./blog
-          </p>
-          <h1 className="m-0 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Notes from what I am building
-          </h1>
-        </section>
+      <section className="mt-16 border-t border-gray-800">
+        <div className="flex items-center justify-between gap-4 py-6">
+          <h2 className="text-2xl font-semibold text-white">Latest posts</h2>
+          <span className="font-mono text-sm text-gray-500">
+            {blogPosts.length} posts
+          </span>
+        </div>
 
-        <section className="mt-16 border-t border-gray-800">
-          <div className="flex items-center justify-between gap-4 py-6">
-            <h2 className="text-2xl font-semibold text-white">Latest posts</h2>
-            <span className="font-mono text-sm text-gray-500">
-              {blogPosts.length} posts
-            </span>
-          </div>
+        <div className="grid gap-5">
+          {blogPosts.map((post) => (
+            <article
+              key={post.id}
+              className="rounded-lg border border-gray-800 bg-gray-900/60 text-left transition hover:border-emerald-400/60 hover:bg-gray-900"
+            >
+              <Link to={`/blog/${post.id}`} className="block rounded-lg p-6 focus-visible:outline-2 focus-visible:outline-emerald-400">
+              <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400">
+                <time dateTime={post.date}>{formatDate(post.date)}</time>
+                <span className="h-1 w-1 rounded-full bg-gray-600" />
+                <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 font-mono text-xs text-emerald-300">
+                  {post.status}
+                </span>
+              </div>
 
-          <div className="grid gap-5">
-            {blogPosts.map((post) => (
-              <article
-                key={post.id}
-                className="rounded-lg border border-gray-800 bg-gray-900/60 text-left transition hover:border-emerald-400/60 hover:bg-gray-900"
-              >
-                <Link to={`/blog/${post.id}`} className="block rounded-lg p-6 focus-visible:outline-2 focus-visible:outline-emerald-400">
-                <div className="flex flex-wrap items-center gap-3 text-sm text-gray-400">
-                  <time dateTime={post.date}>{formatDate(post.date)}</time>
-                  <span className="h-1 w-1 rounded-full bg-gray-600" />
-                  <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 font-mono text-xs text-emerald-300">
-                    {post.status}
+              <h3 className="mt-4 text-2xl font-semibold text-emerald-400">
+                {post.title}
+              </h3>
+              <p className="mt-3 max-w-3xl text-gray-300">{post.excerpt}</p>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-md bg-gray-800 px-2.5 py-1 font-mono text-xs text-gray-300"
+                  >
+                    #{tag}
                   </span>
-                </div>
-
-                <h3 className="mt-4 text-2xl font-semibold text-emerald-400">
-                  {post.title}
-                </h3>
-                <p className="mt-3 max-w-3xl text-gray-300">{post.excerpt}</p>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md bg-gray-800 px-2.5 py-1 font-mono text-xs text-gray-300"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-                <span className="mt-5 block text-sm text-emerald-400">Read post &rarr;</span>
-                </Link>
-              </article>
-            ))}
-          </div>
-        </section>
-      </main>
-    </div>
+                ))}
+              </div>
+              <span className="mt-5 block text-sm text-emerald-400">Read post &rarr;</span>
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }

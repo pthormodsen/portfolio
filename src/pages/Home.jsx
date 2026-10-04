@@ -1,22 +1,18 @@
 import Hero from "../components/Hero";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
-import Navbar from "../components/Navbar";
 import Wpm from "../components/Wpm";
 import FeaturedProjects from "../components/FeaturedProjects";
 
 export default function Home() {
   return (
-    <div className="bg-gray-950 selection:bg-emerald-500 selection:text-gray-900">
-      <Navbar />
-
-      <main>
-        <Hero />
-        <FeaturedProjects />
-        <Projects />
-        <Wpm />
-        <Contact />
-      </main>
-    </div>
+    <main>
+      <title>Patrik Thormodsen – Software Developer</title>
+      <Hero />
+      <FeaturedProjects />
+      <Projects />
+      <Wpm />
+      <Contact />
+    </main>
   );
 }

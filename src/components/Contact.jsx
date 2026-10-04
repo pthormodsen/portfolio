@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Contact() {
   return (
@@ -17,14 +17,6 @@ export default function Contact() {
         </p>
 
         <div className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-4">
-          <a
-            href="tel:+4790471841"
-            className="flex items-center gap-2 text-gray-300 transition hover:text-emerald-400"
-          >
-            <FaPhone />
-            Phone
-          </a>
-
           <a
             href="mailto:patrik.thormodsen@gmail.com"
             className="flex items-center gap-2 text-gray-300 transition hover:text-emerald-400"
@@ -52,20 +44,7 @@ export default function Contact() {
             <FaLinkedin />
             LinkedIn
           </a>
-
-          <a
-            href="https://www.instagram.com/patrik.thormodsen/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-300 transition hover:text-emerald-400"
-          >
-            <FaInstagram />
-            Instagram
-          </a>
         </div>
-        <footer className="bg-gray-950 py-6 text-center font-mono text-sm text-gray-600">
-          © {new Date().getFullYear()} Patrik Thormodsen. All rights reserved.
-        </footer>
       </div>
     </section>
   );

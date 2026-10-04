@@ -98,5 +98,15 @@ export const projects = [
   demoLink: "",
   github: "https://github.com/pthormodsen/TrafficESP32",
   images: esp32Pictures,
-  }
+  },
+  {
+  slug: "SeatSense",
+  title: "SeatSense",
+  description:
+    "Real-time seat availability system using ESP32 and radar sensors to help students find available study spaces on campus.",
+  tech: ["ESP32", "React", "TypeScript", "Vite", "Tailwind CSS", "MazeMap", "Docker", "HLK-LD2410C"],
+  liveLink: "https://SeatSense.patreek.no",
+  demoLink: "",
+  github: "https://github.com/pthormodsen/SeatSense"
+}
 ];
