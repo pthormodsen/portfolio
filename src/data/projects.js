@@ -34,10 +34,40 @@ const esp32Images = import.meta.glob(
   }
 );
 
+const projectManagerImages = import.meta.glob(
+  "../assets/projects/project-manager/*.{png,jpg,jpeg,webp}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }
+);
+
+const quizImages = import.meta.glob(
+  "../assets/projects/quiz-app/*.{png,jpg,jpeg,webp}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }
+);
+
+const seatSenseImages = import.meta.glob(
+  "../assets/projects/seatsense/*.{png,jpg,jpeg,webp}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }
+);
+
 const todoPictures = Object.values(todoImages);
 const chessPictures = Object.values(chessImages);
 const wpmPictures = Object.values(wpmImages);
 const esp32Pictures = Object.values(esp32Images);
+const projectManagerPictures = Object.values(projectManagerImages);
+const quizPictures = Object.values(quizImages);
+const seatSensePictures = Object.values(seatSenseImages);
 
 
 export const projects = [
@@ -77,6 +107,7 @@ export const projects = [
     liveLink: "https://projectmanager.patreek.no",
     demoLink: "https://projectmanager.patreek.no/demo",
     github: "https://github.com/pthormodsen/Projectmanager",
+    images: projectManagerPictures
   },
 
   {
@@ -86,7 +117,8 @@ export const projects = [
     tech: ["React", "TypeScript", "Spring Boot", "Spring Data JPA", "PostgreSQL"],
     liveLink: "https://quiz.patreek.no/login",
     demoLink: "https://quiz.patreek.no/demo",
-    github: "https://github.com/pthormodsen/QuizApp"
+    github: "https://github.com/pthormodsen/QuizApp",
+    images: quizPictures
   },
 
   {
@@ -107,6 +139,7 @@ export const projects = [
   tech: ["ESP32", "React", "TypeScript", "Vite", "Tailwind CSS", "MazeMap", "Docker", "HLK-LD2410C"],
   liveLink: "https://SeatSense.patreek.no",
   demoLink: "",
-  github: "https://github.com/pthormodsen/SeatSense"
+  github: "https://github.com/pthormodsen/SeatSense",
+  images: seatSensePictures
 }
 ];
