@@ -22,6 +22,13 @@ const isLocalPreview = () =>
   typeof window !== "undefined" &&
   ["localhost", "127.0.0.1"].includes(window.location.hostname);
 
+function statusMessage(status) {
+  if (status === 429) return "Too many requests. Please wait a moment and try again.";
+  if (status === 413) return "The request was too large.";
+  if (status >= 500) return "The leaderboard is unavailable right now. Please try again later.";
+  return "Something went wrong.";
+}
+
 async function api(path, body) {
   const response = await fetch(`/api/wpm/${path}`, body
     ? {
@@ -32,10 +39,15 @@ async function api(path, body) {
     : undefined
   );
 
-  const data = await response.json();
+  // Proxy errors (nginx 413/429/502) come back as HTML, not JSON.
+  const data = await response.json().catch(() => null);
 
   if (!response.ok) {
-    throw new Error(data.error || "Something went wrong.");
+    throw new Error(data?.error || statusMessage(response.status));
+  }
+
+  if (!data) {
+    throw new Error("Unexpected response from the leaderboard.");
   }
 
   return data;

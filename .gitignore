@@ -23,3 +23,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+CLAUDE.md
+*.claude/
+
+# Local scratch output (CV renders, generated documents, helper scripts)
+.codex_*/
+cv_output/
+tools/

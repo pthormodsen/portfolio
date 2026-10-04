@@ -18,3 +18,10 @@ compose*.yml
 docker-compose*.yml
 deploy.sh
 README.md
+
+# Local scratch output
+.codex_*
+cv_output
+tools
+.claude
+CLAUDE.md

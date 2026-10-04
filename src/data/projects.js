@@ -47,17 +47,15 @@ export const projects = [
     description: "A chess application with a Java rules engine, React web frontend, legal move validation, game review features, WebSocket engine integration, and Stockfish analysis.",
     tech: ["Java", "Spring Boot", "React", "Vite", "WebSocket", "Stockfish"],
     liveLink: "https://chess.patreek.no",
-    demoLink: "https://chess.patreek.no",
     github: "https://github.com/pthormodsen/Chess",
     images: chessPictures
   },
   {
     slug: "wpm",
     title: "WPM Typing Test",
-    description: "A typing speed test application built with React and TypeScript, featuring a timer, word count, and accuracy tracking.",
-    tech: ["React", "TypeScript", "Tailwind CSS"],
+    description: "A typing speed test application built with React and Tailwind CSS, featuring a timer, word count, and accuracy tracking.",
+    tech: ["React", "JavaScript", "Tailwind CSS"],
     liveLink: "https://wpm.patreek.no",
-    demoLink: "https://wpm.patreek.no",
     github: "https://github.com/pthormodsen/wpm-typing-app",
     images: wpmPictures
   },
@@ -84,8 +82,8 @@ export const projects = [
   {
     slug: "quiz-app",
     title: "Quiz App",
-    description: "A full-stack quiz application with a React/TypeScript frontend and Spring Boot REST API for creating quizzes, adding questions, and storing quiz data in H2.",
-    tech: ["React", "TypeScript", "Spring Boot", "Spring Data JPA", "H2"],
+    description: "A full-stack quiz application with a React/TypeScript frontend and Spring Boot REST API for creating quizzes, adding questions, and storing quiz data in PostgreSQL.",
+    tech: ["React", "TypeScript", "Spring Boot", "Spring Data JPA", "PostgreSQL"],
     liveLink: "https://quiz.patreek.no/login",
     demoLink: "https://quiz.patreek.no/demo",
     github: "https://github.com/pthormodsen/QuizApp"
