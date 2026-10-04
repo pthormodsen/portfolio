@@ -138,14 +138,6 @@ export default function Cv() {
             A timeline of what I have worked on, studied, and learned along
             the way.
           </p>
-
-          <a
-            href="/PatrikCV.pdf"
-            download="Patrik-Thormodsen-CV.pdf"
-            className="mt-8 inline-block rounded-md border border-gray-700 px-6 py-3 font-mono text-sm text-gray-300 transition hover:border-emerald-400 hover:text-emerald-400"
-          >
-            ./download-cv.pdf
-          </a>
         </div>
 
         {/* Education */}
