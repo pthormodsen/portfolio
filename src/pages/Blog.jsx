@@ -1,3 +1,4 @@
+import { FaRss } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { blogPosts } from "../data/blogPosts";
 
@@ -24,9 +25,18 @@ export default function Blog() {
       <section className="mt-16 border-t border-gray-800">
         <div className="flex items-center justify-between gap-4 py-6">
           <h2 className="text-2xl font-semibold text-white">Latest posts</h2>
-          <span className="font-mono text-sm text-gray-500">
-            {blogPosts.length} posts
-          </span>
+          <div className="flex items-center gap-4">
+            <span className="font-mono text-sm text-gray-500">
+              {blogPosts.length} posts
+            </span>
+            <a
+              href="/rss.xml"
+              className="flex items-center gap-1.5 rounded font-mono text-sm text-gray-400 transition hover:text-emerald-400 focus-visible:outline-2 focus-visible:outline-emerald-400"
+            >
+              <FaRss aria-hidden="true" />
+              RSS
+            </a>
+          </div>
         </div>
 
         <div className="grid gap-5">
