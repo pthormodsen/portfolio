@@ -36,7 +36,7 @@ export default function Contact() {
           </a>
 
           <a
-            href="https://www.linkedin.com/in/patrik-thormodsen-41537a364/"
+            href="https://www.linkedin.com/in/pthormodsen"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-gray-300 transition hover:text-emerald-400"
