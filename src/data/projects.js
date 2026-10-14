@@ -61,6 +61,15 @@ const seatSenseImages = import.meta.glob(
   }
 );
 
+const phishingImages = import.meta.glob(
+  "../assets/projects/phishing/*.{png,jpg,jpeg,webp}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }
+);
+
 const todoPictures = Object.values(todoImages);
 const chessPictures = Object.values(chessImages);
 const wpmPictures = Object.values(wpmImages);
@@ -68,6 +77,7 @@ const esp32Pictures = Object.values(esp32Images);
 const projectManagerPictures = Object.values(projectManagerImages);
 const quizPictures = Object.values(quizImages);
 const seatSensePictures = Object.values(seatSenseImages);
+const phishingPictures = Object.values(phishingImages);
 
 
 export const projects = [
@@ -141,5 +151,23 @@ export const projects = [
   demoLink: "",
   github: "https://github.com/pthormodsen/SeatSense",
   images: seatSensePictures
+  },
+  {
+  slug: "PhishingURL",
+  title: "Phishing URL Detector",
+  description:
+    "An experimental machine learning web application that analyzes URLs to identify potential phishing attempts. Predictions may not always be accurate.",
+  tech: [
+    "Python",
+    "Scikit-learn",
+    "FastAPI",
+    "React",
+    "TypeScript",
+    "Docker"
+  ],
+  liveLink: "https://phishing.patreek.no",
+  demoLink: "",
+  github: "https://github.com/pthormodsen/PhishingURL",
+  images: phishingPictures
 }
 ];

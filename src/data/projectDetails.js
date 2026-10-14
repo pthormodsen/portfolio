@@ -189,4 +189,42 @@ export const projectDetails = {
       "Add tools for reporting faulty or offline sensors.",
     ],
   },
+
+
+  PhishingURL: {
+    overview: [
+      "An experimental machine learning web application that analyzes URLs to identify potential phishing attempts. Users can enter a URL and receive a prediction from a trained classification model.",
+      "The project combines machine learning with a React frontend and a FastAPI backend. The model analyzes the URL text itself without visiting the website or inspecting its contents. Predictions are not always accurate.",
+    ],
+    highlights: [
+      "Users can enter a URL and receive a phishing classification through a simple web interface.",
+      "The classification model uses TF-IDF character features and a linear classifier to identify patterns commonly associated with phishing URLs.",
+      "The application explains that predictions are estimates rather than guarantees of website safety.",
+      "The model is evaluated using accuracy, precision, recall, F1-score, and confusion matrices to understand its strengths and weaknesses.",
+    ],
+    technical: [
+      "The frontend is built with React and TypeScript, while a Python FastAPI backend handles URL validation, preprocessing, and model inference.",
+      "The machine learning pipeline uses Scikit-learn with character-level TF-IDF vectorization and a linear classifier trained using stochastic gradient descent (SGD).",
+      "Training and evaluation are performed in Jupyter notebooks using real-world URL datasets. The trained model is saved and loaded by the backend for predictions.",
+      "The application is containerized with Docker and deployed as a self-hosted service.",
+    ],
+    challenges: [
+      "The model initially produced false positives for legitimate websites and failed to detect some phishing URLs that closely resembled trusted domains.",
+      "Random train-test splits can produce misleading results when URLs from the same website appear in both training and evaluation data. Group-based splitting was introduced to provide a more realistic assessment.",
+      "Finding an appropriate balance between phishing detection and false positives is difficult. Increasing recall can also cause more legitimate URLs to be flagged.",
+      "A URL-only model cannot inspect website content, redirects, certificates, or actual page behavior, limiting what it can reliably determine.",
+    ],
+    learned: [
+      "High accuracy on a test dataset does not necessarily mean a model will perform well on unfamiliar websites or real-world examples.",
+      "Preventing data leakage and designing representative evaluation datasets are just as important as choosing the classification algorithm.",
+      "Deploying a machine learning model requires more than training it. Input validation, preprocessing consistency, API integration, and communicating uncertainty are essential parts of the application.",
+    ],
+    nextSteps: [
+      "Experiment with additional classification models and feature extraction methods to improve generalization.",
+      "Expand evaluation using unfamiliar legitimate domains and phishing URLs that imitate well-known websites.",
+      "Reduce false positives without significantly weakening phishing detection.",
+      "Improve the explanation of model predictions and communicate their limitations more clearly.",
+    ],
+  },
+
 };
