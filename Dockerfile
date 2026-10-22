@@ -10,6 +10,8 @@ RUN --mount=type=cache,target=/root/.npm npm ci
 
 COPY . .
 
+# Commit SHA for the footer build line (.git is excluded from the build context)
+ARG GIT_SHA=""
 RUN npm run build
 
 # Production stage

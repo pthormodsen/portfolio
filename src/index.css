@@ -4,14 +4,7 @@
   --text: #9ca3af;
   --text-h: #f3f4f6;
   --bg: #16171d;
-  --border: #2e303a;
   --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
   --sans: var(--font-sans);
   --heading: var(--font-sans);
@@ -19,7 +12,6 @@
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
-  /*color-scheme: light dark;*/
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
@@ -44,36 +36,19 @@ body {
   flex-direction: column;
 }
 
+/* Weight is left to the font-* utilities on each heading. */
 h1,
 h2 {
+  margin: 0;
   font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  margin: 0;
-  @media (max-width: 1024px) {
-    margin: 0;
-  }
-}
-h2 {
-  margin: 0;
-  @media (max-width: 1024px) {
-    margin: 0;
-  }
-}
-
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
   color: var(--text-h);
 }
 
 code {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
   font-size: 15px;
   line-height: 135%;
   padding: 4px 8px;
@@ -82,4 +57,24 @@ code {
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Custom classes live in the components layer so Tailwind utilities can still override them. */
+@layer components {
+  /* Scroll reveal, toggled by components/Reveal.jsx. */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }

@@ -1,10 +1,21 @@
 import react from '@vitejs/plugin-react'
+import { execSync } from 'node:child_process'
 import process from 'node:process'
 import { defineConfig } from 'vite'
 import { blogPosts } from './src/data/blogPosts.js'
 
 const apiProxyTarget = process.env.VITE_API_PROXY_TARGET || 'http://localhost:3001'
 const SITE_URL = 'https://portfolio.patreek.no'
+
+// Commit shown in the footer. CI passes GIT_SHA (the Docker build has no .git); locally we ask git.
+function getGitSha() {
+  if (process.env.GIT_SHA) return process.env.GIT_SHA
+  try {
+    return execSync('git rev-parse HEAD', { stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim()
+  } catch {
+    return ''
+  }
+}
 
 const escapeXml = (s) =>
   s.replace(/[<>&'"]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' })[c])
@@ -59,6 +70,10 @@ function rssPlugin() {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), rssPlugin()],
+  define: {
+    'import.meta.env.VITE_GIT_SHA': JSON.stringify(getGitSha()),
+    'import.meta.env.VITE_BUILD_DATE': JSON.stringify(new Date().toISOString()),
+  },
   server: {
     proxy: { '/api/wpm': apiProxyTarget },
   },

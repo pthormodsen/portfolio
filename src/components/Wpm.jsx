@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Reveal from "./Reveal";
 
 const LOCAL_DEMO_SCORES = [
   { id: "demo-1", name: "Patrik", wpm: 120, accuracy: 99 },
@@ -219,10 +220,10 @@ export default function Wpm() {
   const finished = running && seconds === 0;
 
   return (
-    <section className="bg-gray-950 px-4 py-20 text-white">
+    <section id="wpm" className="bg-gray-950 px-4 py-20 text-white">
       <div className="mx-auto max-w-5xl">
 
-        <div className="mb-10 text-left">
+        <Reveal className="mb-10 text-left">
           <p className="mb-2 font-mono text-sm text-emerald-400">
             ~/portfolio/typing-test
           </p>
@@ -236,7 +237,7 @@ export default function Wpm() {
             The wpm test is a short {game?.duration ?? 15} seconds typing challenge that measures your typing speed and accuracy.
             <br/><br/>(The text is fixed so that it is fair for all players participating)
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_18rem] lg:grid-cols-[minmax(0,1fr)_20rem]">
 

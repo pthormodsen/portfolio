@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { projects } from "../data/projects";
-
-const featuredSlugs = ["chess", "wpm", "todo-list"];
+import { featuredSlugs, projects } from "../data/projects";
+import Reveal from "./Reveal";
 
 export default function FeaturedProjects() {
   const featuredProjects = featuredSlugs
@@ -11,7 +10,7 @@ export default function FeaturedProjects() {
   return (
     <section className="bg-gray-950 px-4 py-20 text-white">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-10 flex flex-col items-center gap-3 text-center">
+        <Reveal className="mb-10 flex flex-col items-center gap-3 text-center">
           <p className="font-mono text-sm text-emerald-400">
             ~/portfolio/featured
           </p>
@@ -23,75 +22,97 @@ export default function FeaturedProjects() {
           <p className="max-w-2xl text-gray-400">
             A selection of projects I am most proud of.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {featuredProjects.map((project) => (
-            <article
-              key={project.slug}
-              className="group overflow-hidden rounded-lg border border-gray-800 bg-gray-900/60 text-left transition duration-300 hover:-translate-y-1 hover:border-emerald-400/60 hover:bg-gray-900"
-            >
-              <Link to={`/projects/${project.slug}`} className="block">
-                {project.images?.[0] && (
-                  <div className="aspect-[16/10] overflow-hidden border-b border-gray-800 bg-gray-950">
-                    <img
-                      src={project.images[0]}
-                      alt={`${project.title} screenshot`}
-                      className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                )}
-
-                <div className="p-5">
-                  <p className="mb-2 font-mono text-xs text-gray-500">
-                    ~/projects/{project.slug}
-                  </p>
-
-                  <h3 className="text-2xl font-semibold text-white transition-colors group-hover:text-emerald-400">
-                    {project.title}
-                  </h3>
-
-                  <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-gray-400">
-                    {project.description}
-                  </p>
-
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {project.tech.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded border border-gray-700 bg-gray-950 px-2 py-1 font-mono text-xs text-gray-400"
-                      >
-                        {tech}
+          {featuredProjects.map((project, index) => (
+            <Reveal key={project.slug} delay={index * 80}>
+              <article
+                className="group h-full overflow-hidden rounded-lg border border-gray-800 bg-gray-900/60 text-left transition duration-300 hover:-translate-y-1 hover:border-emerald-400/60 hover:bg-gray-900"
+              >
+                <Link to={`/projects/${project.slug}`} className="block">
+                  {project.images?.[0] ? (
+                    <div className="aspect-[16/10] overflow-hidden border-b border-gray-800 bg-gray-950">
+                      <img
+                        src={project.images[0]}
+                        alt={`${project.title} screenshot`}
+                        className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      aria-hidden="true"
+                      className="flex aspect-[16/10] items-center justify-center border-b border-gray-800 bg-gray-950 font-mono text-sm text-gray-600"
+                    >
+                      <span>
+                        <span className="text-emerald-400">$</span> ./{project.slug}
+                        <span className="ml-1 inline-block h-4 w-2 bg-gray-700 align-middle" />
                       </span>
-                    ))}
+                    </div>
+                  )}
+
+                  <div className="p-5">
+                    <p className="mb-2 font-mono text-xs text-gray-500">
+                      ~/projects/{project.slug}
+                    </p>
+
+                    <h3 className="text-2xl font-semibold text-white transition-colors group-hover:text-emerald-400">
+                      {project.title}
+                    </h3>
+
+                    <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-gray-400">
+                      {project.description}
+                    </p>
+
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {project.tech.slice(0, 3).map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded border border-gray-700 bg-gray-950 px-2 py-1 font-mono text-xs text-gray-400"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
+                </Link>
+
+                <div className="flex flex-wrap gap-4 border-t border-gray-800 px-5 py-4 text-sm justify-center">
+                  {project.liveLink && (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-mono text-emerald-400 transition hover:text-emerald-300"
+                    >
+                      live
+                    </a>
+                  )}
+
+                  {project.demoLink && (
+                    <a
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-mono text-emerald-400 transition hover:text-emerald-300"
+                    >
+                      demo
+                    </a>
+                  )}
+
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-mono text-gray-500 transition hover:text-white"
+                    >
+                      github
+                    </a>
+                  )}
                 </div>
-              </Link>
-
-              <div className="flex flex-wrap gap-4 border-t border-gray-800 px-5 py-4 text-sm justify-center">
-                {project.liveLink && (
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-mono text-emerald-400 transition hover:text-emerald-300"
-                  >
-                    live
-                  </a>
-                )}
-
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-mono text-gray-500 transition hover:text-white"
-                  >
-                    github
-                  </a>
-                )}
-              </div>
-            </article>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

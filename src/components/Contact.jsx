@@ -1,9 +1,10 @@
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import Reveal from "./Reveal";
 
 export default function Contact() {
   return (
     <section id="contact" className="bg-gray-950 px-6 py-10 text-white">
-      <div className="mx-auto max-w-4xl text-center">
+      <Reveal className="mx-auto max-w-4xl text-center">
         <p className="mb-2 font-mono text-sm text-emerald-400">
           ~/portfolio/contact
         </p>
@@ -45,7 +46,7 @@ export default function Contact() {
             LinkedIn
           </a>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

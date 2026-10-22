@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { blogPosts } from "../data/blogPosts";
+import { buildInfo } from "../data/buildInfo";
+import { projects } from "../data/projects";
 
 const COMMAND_ALIASES = { 
   ".": "home",
@@ -30,6 +33,12 @@ const COMMAND_ALIASES = {
   work: "projects",
   portfolio: "projects",
 
+  "#wpm": "wpm",
+  wpm: "wpm",
+  typing: "wpm",
+  "typing-test": "wpm",
+  typingtest: "wpm",
+
   "#contact": "contact",
   contact: "contact",
   email: "contact",
@@ -44,6 +53,7 @@ const DESTINATIONS = {
   experience: { path: "/experience", sectionId: null },
   blog: { path: "/blog", sectionId: null },
   projects: { path: "/", sectionId: "projects" },
+  wpm: { path: "/", sectionId: "wpm" },
   contact: { path: "/", sectionId: "contact" },
 };
 
@@ -68,6 +78,10 @@ const HELP_SECTIONS = [
       {
         command: "resume, cv",
         description: "Open experience",
+      },
+      {
+        command: "wpm, typing",
+        description: "Jump to the typing test",
       },
       {
         command: "contact, email",
@@ -95,6 +109,10 @@ const HELP_SECTIONS = [
         description: "Show current user",
       },
       {
+        command: "neofetch",
+        description: "Show system info",
+      },
+      {
         command: "clear",
         description: "Hide terminal output",
       },
@@ -112,8 +130,33 @@ const LOCATION_ITEMS = [
   { name: "./experience", commands: "experience, resume, cv" },
   { name: "./blog", commands: "blog, posts, writing" },
   { name: "#projects", commands: "projects, project, work" },
+  { name: "#wpm", commands: "wpm, typing" },
   { name: "#contact", commands: "contact, email, socials" },
 ];
+
+const NEOFETCH_INFO = [
+  ["os", "React 19 + Vite"],
+  ["host", "self-hosted, Proxmox homelab"],
+  ["shell", "TerminalNav"],
+  ["stack", "Java, Spring Boot, React, Docker"],
+  ["projects", String(projects.length)],
+  ["posts", String(blogPosts.length)],
+  ["build", buildInfo.shortSha || "local"],
+];
+
+const NEOFETCH_LOGO = String.raw`
+ .------.
+ | >_   |
+ |      |
+ '------'
+`.slice(1, -1);
+
+const SWATCHES = ["bg-gray-950", "bg-red-400", "bg-emerald-400", "bg-yellow-400", "bg-sky-400", "bg-gray-300"];
+
+// Messages with these prefixes are shown as errors.
+const ERROR_PREFIX = /^(command not found|sudo|rm):/;
+
+const isRmRoot = (cmd) => /^rm -(rf|fr) \/\*?$/.test(cmd);
 
 const normalizeCommand = (value) => {
   let normalized = value.trim().toLowerCase().replace(/\s+/g, " ");
@@ -154,6 +197,7 @@ export default function TerminalNav() {
   const [message, setMessage] = useState("");
 
   const inputRef = useRef(null);
+  const rmTimerRef = useRef(null);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -181,7 +225,10 @@ export default function TerminalNav() {
     focusInput();
   };
 
+  useEffect(() => () => clearTimeout(rmTimerRef.current), []);
+
   const closeTerminal = () => {
+    clearTimeout(rmTimerRef.current);
     setActive(false);
     setCommand("");
     setMessage("");
@@ -220,6 +267,8 @@ export default function TerminalNav() {
 
     if (!cmd) return;
 
+    clearTimeout(rmTimerRef.current);
+
     if (cmd === "help" || cmd === "?") {
       setMessage("help");
       keepTerminalOpen();
@@ -241,6 +290,29 @@ export default function TerminalNav() {
     if (cmd === "whoami") {
       setMessage("patrik");
       keepTerminalOpen();
+      return;
+    }
+
+    if (cmd === "neofetch") {
+      setMessage("neofetch");
+      keepTerminalOpen();
+      return;
+    }
+
+    // Easter eggs: nothing here touches anything, they only print a message.
+    if (cmd === "sudo" || cmd.startsWith("sudo ")) {
+      setMessage("sudo: patrik is not in the sudoers file. This incident will be reported.");
+      keepTerminalOpen();
+      return;
+    }
+
+    if (isRmRoot(cmd)) {
+      setMessage("rm: removing '/' ... deleting node_modules (this may take a while)");
+      keepTerminalOpen();
+
+      rmTimerRef.current = setTimeout(() => {
+        setMessage("just kidding. nothing was deleted, this portfolio is load-bearing.");
+      }, 1400);
       return;
     }
 
@@ -274,7 +346,8 @@ export default function TerminalNav() {
     }, 80);
   };
 
-  const isPanelOpen = message === "help" || message === "ls";
+  const isPanelOpen =
+    message === "help" || message === "ls" || message === "neofetch";
   const hasInlineOutput = message && !isPanelOpen;
 
   return (
@@ -309,6 +382,7 @@ export default function TerminalNav() {
             setCommand(e.target.value);
 
             if (message && !isPanelOpen) {
+              clearTimeout(rmTimerRef.current);
               setMessage("");
             }
           }}
@@ -359,8 +433,8 @@ export default function TerminalNav() {
       )}
 
       {hasInlineOutput && (
-        <div className="absolute left-0 top-full mt-2 rounded border border-gray-800 bg-gray-950 px-3 py-2 text-xs shadow-xl shadow-black/30">
-          {message.startsWith("command not found:") ? (
+        <div className="absolute left-0 top-full mt-2 w-max max-w-xs rounded border border-gray-800 bg-gray-950 px-3 py-2 text-left text-xs shadow-xl shadow-black/30">
+          {ERROR_PREFIX.test(message) ? (
             <span className="text-red-400">{message}</span>
           ) : (
             <span className="text-emerald-400">{message}</span>
@@ -463,6 +537,55 @@ export default function TerminalNav() {
                   {item.commands}
                 </span>
               </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {message === "neofetch" && (
+        <div className="absolute left-0 top-full mt-2 w-96 rounded border border-gray-800 bg-gray-950 p-4 text-left shadow-xl shadow-black/30">
+          <div className="mb-4 flex items-start justify-between gap-4 border-b border-gray-800 pb-3">
+            <div>
+              <p className="text-xs uppercase tracking-[0.18em] text-gray-500">
+                System info
+              </p>
+
+              <p className="mt-1 text-sm text-emerald-400">
+                patrik@portfolio
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                closeOutput();
+              }}
+              className="flex h-7 w-7 shrink-0 items-center justify-center rounded border border-gray-800 text-gray-500 transition hover:border-gray-700 hover:text-white focus-visible:outline-2 focus-visible:outline-emerald-400"
+              aria-label="Close system info"
+            >
+              x
+            </button>
+          </div>
+
+          <div className="flex gap-5">
+            <pre aria-hidden="true" className="m-0 text-xs leading-snug text-emerald-400">
+              {NEOFETCH_LOGO}
+            </pre>
+
+            <dl className="m-0 grid grid-cols-[4.5rem_1fr] gap-x-3 gap-y-1 text-xs">
+              {NEOFETCH_INFO.map(([label, value]) => (
+                <div key={label} className="contents">
+                  <dt className="text-emerald-400">{label}</dt>
+                  <dd className="m-0 text-gray-300">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div aria-hidden="true" className="mt-4 flex gap-1">
+            {SWATCHES.map((swatch) => (
+              <span key={swatch} className={`h-3 w-5 rounded-sm border border-gray-800 ${swatch}`} />
             ))}
           </div>
         </div>

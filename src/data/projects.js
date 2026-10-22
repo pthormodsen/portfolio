@@ -79,6 +79,8 @@ const quizPictures = Object.values(quizImages);
 const seatSensePictures = Object.values(seatSenseImages);
 const phishingPictures = Object.values(phishingImages);
 
+// Shown in the featured section on the home page and left out of the main grid.
+export const featuredSlugs = ["chess", "SeatSense", "PhishingURL"];
 
 export const projects = [
   {
@@ -89,57 +91,6 @@ export const projects = [
     liveLink: "https://chess.patreek.no",
     github: "https://github.com/pthormodsen/Chess",
     images: chessPictures
-  },
-  {
-    slug: "wpm",
-    title: "WPM Typing Test",
-    description: "A typing speed test application built with React and Tailwind CSS, featuring a timer, word count, and accuracy tracking.",
-    tech: ["React", "JavaScript", "Tailwind CSS"],
-    liveLink: "https://wpm.patreek.no",
-    github: "https://github.com/pthormodsen/wpm-typing-app",
-    images: wpmPictures
-  },
-  {
-    slug: "todo-list",
-    title: "TODO List",
-    description: "A Spring Boot task manager with user authentication, task CRUD, validation, PostgreSQL persistence, local H2 support, email reminders, and Docker deployment.",
-    tech: ["Java", "Spring Boot", "Spring Security", "PostgreSQL", "H2", "Docker"],
-    liveLink: "https://todo.patreek.no",
-    demoLink: "https://todo.patreek.no/demo",
-    github: "https://github.com/pthormodsen/TODOListSpringBoot",
-    images: todoPictures
-  },
-  {
-    slug: "project-manager",
-    title: "Project Manager",
-    description: "A full-stack project management system with a React/TypeScript Kanban board and a Spring Boot REST API for users, projects, and tasks.",
-    tech: ["React", "TypeScript", "Tailwind CSS", "Spring Boot", "Spring Data JPA", "H2"],
-    liveLink: "https://projectmanager.patreek.no",
-    demoLink: "https://projectmanager.patreek.no/demo",
-    github: "https://github.com/pthormodsen/Projectmanager",
-    images: projectManagerPictures
-  },
-
-  {
-    slug: "quiz-app",
-    title: "Quiz App",
-    description: "A full-stack quiz application with a React/TypeScript frontend and Spring Boot REST API for creating quizzes, adding questions, and storing quiz data in PostgreSQL.",
-    tech: ["React", "TypeScript", "Spring Boot", "Spring Data JPA", "PostgreSQL"],
-    liveLink: "https://quiz.patreek.no/login",
-    demoLink: "https://quiz.patreek.no/demo",
-    github: "https://github.com/pthormodsen/QuizApp",
-    images: quizPictures
-  },
-
-  {
-  slug: "trafficESP",
-  title: "ESP32 Traffic Display",
-  description: "Real time nearby traffic incidents displayed on an ESP32 using Norwegian DATEX traffic data.",
-  tech: ["ESP32", "C++", "FastAPI", "Python", "DATEX II", "Docker", "Wokwi"],
-  liveLink: "",
-  demoLink: "",
-  github: "https://github.com/pthormodsen/TrafficESP32",
-  images: esp32Pictures,
   },
   {
   slug: "SeatSense",
@@ -169,5 +120,54 @@ export const projects = [
   demoLink: "",
   github: "https://github.com/pthormodsen/PhishingURL",
   images: phishingPictures
-}
+},
+  {
+    slug: "todo-list",
+    title: "TODO List",
+    description: "A Spring Boot task manager with user authentication, task CRUD, validation, PostgreSQL persistence, local H2 support, email reminders, and Docker deployment.",
+    tech: ["Java", "Spring Boot", "Spring Security", "PostgreSQL", "H2", "Docker"],
+    liveLink: "https://todo.patreek.no",
+    demoLink: "https://todo.patreek.no/demo",
+    github: "https://github.com/pthormodsen/TODOListSpringBoot",
+    images: todoPictures
+  },
+  {
+    slug: "quiz-app",
+    title: "Quiz App",
+    description: "A full-stack quiz application with a React/TypeScript frontend and Spring Boot REST API for creating quizzes, adding questions, and storing quiz data in PostgreSQL.",
+    tech: ["React", "TypeScript", "Spring Boot", "Spring Data JPA", "PostgreSQL"],
+    liveLink: "https://quiz.patreek.no/login",
+    demoLink: "https://quiz.patreek.no/demo",
+    github: "https://github.com/pthormodsen/QuizApp",
+    images: quizPictures
+  },
+  {
+  slug: "trafficESP",
+  title: "ESP32 Traffic Display",
+  description: "Real time nearby traffic incidents displayed on an ESP32 using Norwegian DATEX traffic data.",
+  tech: ["ESP32", "C++", "FastAPI", "Python", "DATEX II", "Docker", "Wokwi"],
+  liveLink: "",
+  demoLink: "",
+  github: "https://github.com/pthormodsen/TrafficESP32",
+  images: esp32Pictures,
+  },
+  {
+    slug: "project-manager",
+    title: "Project Manager",
+    description: "A full-stack project management system with a React/TypeScript Kanban board and a Spring Boot REST API for users, projects, and tasks.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Spring Boot", "Spring Data JPA", "H2"],
+    liveLink: "https://projectmanager.patreek.no",
+    demoLink: "https://projectmanager.patreek.no/demo",
+    github: "https://github.com/pthormodsen/Projectmanager",
+    images: projectManagerPictures
+  },
+  {
+    slug: "wpm",
+    title: "WPM Typing Test",
+    description: "A typing speed test application built with React and Tailwind CSS, featuring a timer, word count, and accuracy tracking.",
+    tech: ["React", "JavaScript", "Tailwind CSS"],
+    liveLink: "https://wpm.patreek.no",
+    github: "https://github.com/pthormodsen/wpm-typing-app",
+    images: wpmPictures
+  }
 ];
