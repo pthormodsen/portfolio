@@ -68,6 +68,7 @@ export default function FeaturedProjects() {
                       {project.tech.slice(0, 3).map((tech) => (
                         <span
                           key={tech}
+                          data-tech={tech}
                           className="rounded border border-gray-700 bg-gray-950 px-2 py-1 font-mono text-xs text-gray-400"
                         >
                           {tech}

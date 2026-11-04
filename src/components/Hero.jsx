@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import HeroBackground from "./HeroBackground";
 
 const COMMAND = "whoami";
 const STATUS = "currently building things and breaking them";
@@ -50,6 +51,8 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-[55vh] flex-col items-center justify-center overflow-hidden bg-gray-950 px-4 pb-20 pt-16 text-center text-white sm:py-20">
+
+      <HeroBackground />
 
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.055]"

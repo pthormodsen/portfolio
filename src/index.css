@@ -1,9 +1,11 @@
 @import "tailwindcss";
+@import "./palette.css";
+@import "./spice.css";
 
 :root {
   --text: #9ca3af;
   --text-h: #f3f4f6;
-  --bg: #16171d;
+  --bg: #15181f;
   --code-bg: #f4f3ec;
 
   --sans: var(--font-sans);
@@ -61,6 +63,31 @@ html {
 
 /* Custom classes live in the components layer so Tailwind utilities can still override them. */
 @layer components {
+  /* Pulses on the hero's circuit traces, see components/HeroBackground.jsx.
+     The dash starts just before the path, so with reduced motion only the static traces show. */
+  .hero-pulse {
+    stroke-dasharray: 6 200;
+    stroke-dashoffset: 6;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-pulse {
+      animation: hero-pulse linear infinite;
+    }
+  }
+
+  @keyframes hero-pulse {
+    0% {
+      stroke-dashoffset: 6;
+    }
+
+    /* Travels for the first 45% of the cycle, then rests out of sight. */
+    45%,
+    100% {
+      stroke-dashoffset: -100;
+    }
+  }
+
   /* Scroll reveal, toggled by components/Reveal.jsx. */
   @media (prefers-reduced-motion: no-preference) {
     .reveal {
