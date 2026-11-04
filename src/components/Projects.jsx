@@ -74,6 +74,7 @@ export default function Projects() {
                       {project.tech.map((tech) => (
                         <span
                           key={tech}
+                          data-tech={tech}
                           className="rounded-md border border-gray-700 bg-gray-900 px-2.5 py-1 font-mono text-xs text-gray-400"
                         >
                           {tech}

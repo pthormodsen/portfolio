@@ -1,0 +1,9 @@
+/* Softer charcoal in place of Tailwind's near-black grays; 500/600 are raised to keep muted text readable. */
+@theme {
+  --color-gray-950: #15181f;
+  --color-gray-900: #1c2029;
+  --color-gray-800: #2a2f3a;
+  --color-gray-700: #3a404d;
+  --color-gray-600: #7d8491;
+  --color-gray-500: #8f96a3;
+}
