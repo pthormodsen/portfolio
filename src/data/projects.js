@@ -70,6 +70,15 @@ const phishingImages = import.meta.glob(
   }
 );
 
+const minecraftImages = import.meta.glob(
+  "../assets/projects/minecraft/*.{png,jpg,jpeg,webp}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }
+);
+
 const todoPictures = Object.values(todoImages);
 const chessPictures = Object.values(chessImages);
 const wpmPictures = Object.values(wpmImages);
@@ -78,6 +87,7 @@ const projectManagerPictures = Object.values(projectManagerImages);
 const quizPictures = Object.values(quizImages);
 const seatSensePictures = Object.values(seatSenseImages);
 const phishingPictures = Object.values(phishingImages);
+const minecraftPictures = Object.values(minecraftImages);
 
 // Shown in the featured section on the home page and left out of the main grid.
 export const featuredSlugs = ["chess", "SeatSense", "PhishingURL"];
@@ -169,5 +179,12 @@ export const projects = [
     liveLink: "https://wpm.patreek.no",
     github: "https://github.com/pthormodsen/wpm-typing-app",
     images: wpmPictures
-  }
+  },
+  {
+  slug: "calculator",
+  title: "Minecraft Calculator",
+  description: "A functional calculator built in Minecraft using redstone logic, featuring binary arithmetic, signed number representation, and custom logic circuits.",
+  tech: ["Minecraft", "Redstone", "Binary", "Logic Gates"],
+  images: minecraftPictures
+ }
 ];

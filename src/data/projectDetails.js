@@ -226,5 +226,31 @@ export const projectDetails = {
       "Improve the explanation of model predictions and communicate their limitations more clearly.",
     ],
   },
-
+  calculator: {
+  overview: [
+    "An ongoing project exploring how a calculator can be built in Minecraft using redstone circuits and binary logic.",
+    "The goal is to understand fundamental computer architecture concepts by experimenting with redstone components and building simple logic circuits.",
+  ],
+  highlights: [
+    "Experimenting with binary number representation and arithmetic.",
+    "Exploring how redstone components can be combined to create basic logic gates.",
+    "Planning a calculator with 7-bit inputs and support for signed numbers.",
+  ],
+  technical: [
+    "Built entirely in Minecraft using redstone components.",
+    "Explores binary arithmetic, logic gates, and digital circuit design.",
+  ],
+  challenges: [
+    "Understanding how to translate binary operations into physical redstone circuits.",
+    "Designing circuits that handle signals reliably and consistently.",
+  ],
+  learned: [
+    "Developing a practical understanding of binary numbers and digital logic.",
+    "Learning how basic logic gates form the foundation of more complex computing systems.",
+  ],
+  nextSteps: [
+    "Continue building and testing basic arithmetic circuits.",
+    "Combine individual circuits into a functional calculator.",
+  ],
+},
 };
