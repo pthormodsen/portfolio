@@ -3,12 +3,14 @@ import { Link, useParams } from "react-router-dom";
 import { blogPosts } from "../data/blogPosts";
 import proxmoxHomeLab from "./blogposts/ProxmoxHomeLab";
 import fedoraDualBoot from "./blogposts/FedoraDualBoot";
+import MovingMyHomelabToK3s from "./blogposts/MovingMyHomelabToK3s";    
 import "./blogposts/blogposts.css";
 
 // Match each component to its id in data/blogPosts.js.
 const pages = {
   "building-my-first-proxmox-homelab": proxmoxHomeLab,
-  "fedora-ethernet-driver-fix" : fedoraDualBoot
+  "fedora-ethernet-driver-fix" : fedoraDualBoot,
+  "moving-my-homelab-to-k3s" : MovingMyHomelabToK3s
 };
 
 export default function BlogPost() {

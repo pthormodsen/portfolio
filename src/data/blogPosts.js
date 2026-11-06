@@ -1,4 +1,13 @@
 export const blogPosts = [
+    {
+    id: "moving-my-homelab-to-k3s",
+    title: "Moving My Homelab from One Docker VM to K3s",
+    date: "2026-11-06",
+    status: "draft",
+    tags: ["Homelab", "Kubernetes", "K3s", "Proxmox"],
+    excerpt:
+      "Everything I host ran in one Docker VM on one machine. Here is how I set up a small K3s cluster across two Proxmox hosts, what two hosts can and can't give you, and the first app I moved over.",
+  },
   {
     id: "building-my-first-proxmox-homelab",
     title: "Building My First Proxmox Home Lab",
