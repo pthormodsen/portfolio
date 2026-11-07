@@ -6,7 +6,7 @@ export const blogPosts = [
     status: "draft",
     tags: ["Homelab", "Kubernetes", "K3s", "Proxmox"],
     excerpt:
-      "Everything I host ran in one Docker VM on one machine. Here is how I set up a small K3s cluster across two Proxmox hosts, what two hosts can and can't give you, and the first app I moved over.",
+      "Everything I host ran in one Docker VM on one machine. Here is how I moved it to a small K3s cluster across two Proxmox hosts, what broke along the way, and what happened when I pulled the plug.",
   },
   {
     id: "building-my-first-proxmox-homelab",
