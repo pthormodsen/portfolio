@@ -79,6 +79,15 @@ const minecraftImages = import.meta.glob(
   }
 );
 
+const resumarkImages = import.meta.glob(
+  "../assets/projects/resumark/*.{png,jpg,jpeg,webp}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  }
+);
+
 const todoPictures = Object.values(todoImages);
 const chessPictures = Object.values(chessImages);
 const wpmPictures = Object.values(wpmImages);
@@ -88,6 +97,7 @@ const quizPictures = Object.values(quizImages);
 const seatSensePictures = Object.values(seatSenseImages);
 const phishingPictures = Object.values(phishingImages);
 const minecraftPictures = Object.values(minecraftImages);
+const resumarkPictures = Object.values(resumarkImages);
 
 // Shown in the featured section on the home page and left out of the main grid.
 export const featuredSlugs = ["chess", "SeatSense", "PhishingURL"];
@@ -131,6 +141,16 @@ export const projects = [
   github: "https://github.com/pthormodsen/PhishingURL",
   images: phishingPictures
 },
+  {
+    slug: "resumark",
+    title: "Resumark",
+    description:
+      "A browser based CV editor: write your CV in Markdown, see a live A4 preview with page breaks, pick a theme, and download a PDF. No account, and the CV never leaves the browser.",
+    tech: ["React", "TypeScript", "Vite", "CodeMirror", "markdown-it", "DOMPurify", "Vitest", "Docker", "k3s"],
+    liveLink: "https://resumark.patreek.no",
+    github: "https://github.com/pthormodsen/CvCreator",
+    images: resumarkPictures
+  },
   {
     slug: "todo-list",
     title: "TODO List",

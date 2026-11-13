@@ -97,14 +97,6 @@ export default function Hero() {
           >
             About Me
           </Link>
-
-          <a
-            href="/PatrikCV.pdf"
-            download="Patrik-Thormodsen-CV.pdf"
-            className="rounded-md border border-gray-700 px-6 py-3 text-gray-300 transition hover:border-gray-500 hover:text-white"
-          >
-            Download CV
-          </a>
         </div>
 
         <div className="mt-10 font-mono text-sm text-gray-600">

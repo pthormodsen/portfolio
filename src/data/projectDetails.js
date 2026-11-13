@@ -253,4 +253,32 @@ export const projectDetails = {
     "Combine individual circuits into a functional calculator.",
   ],
 },
+  resumark: {
+    overview: [
+      "Resumark is a CV editor that runs entirely in the browser. You write the CV in Markdown on the left, see it rendered as A4 pages on the right, and download it as a PDF.",
+      "I built it because I wanted to keep my own CV as plain text in Git, but still get a clean, well-designed PDF without fighting a word processor.",
+    ],
+    highlights: [
+      "Three themes (classic, modern, minimal), including a two-column sidebar layout, all driven by shared CSS variables.",
+      "A live preview that shows where each page will break in the PDF.",
+      "Optional YAML front matter for theme, accent colour, font, sizes, margins, and section placement. A Customize panel edits the same front matter, so the Markdown file stays the single source of truth.",
+      "No account and no backend: the CV is saved in localStorage and the PDF is made with the browser's own print dialog.",
+      "A syntax cheat sheet, undo toasts instead of confirm dialogs, dark mode, and a first-visit welcome.",
+    ],
+    technical: [
+      "markdown-it with plugins for Pandoc-style syntax (fenced divs, bracketed spans, attributes, definition lists). A structuring step then turns the flat HTML into a CV layout: name and contact header, sections, and entries. Plain Markdown works too, the structure is inferred.",
+      "Pagination is simulated by measuring the rendered blocks and pushing entries, list items, and definition lists to the next page when they would be split, mirroring break-inside: avoid in the print CSS.",
+      "Rendered HTML is sanitized with DOMPurify, and external images and resources are blocked so a shared .md file cannot call home when opened. Only inline data: images are allowed. User CSS from the front matter is sanitized and scoped to the CV page.",
+      "Fonts (Inter, Source Serif 4, IBM Plex, Geist) are bundled and loaded before printing, so the PDF never falls back to a system font.",
+      "The editor is CodeMirror 6. Changes from the Customize panel are applied as a minimal text diff, so the cursor and undo history stay intact.",
+      "Vitest tests cover the Markdown structuring, settings validation, CSS sanitizing, and the cheat sheet, which is checked against the parser so the docs cannot drift from the code.",
+      "Built into an nginx image by GitHub Actions and deployed to my k3s homelab cluster.",
+    ],
+    challenges: [
+      "Making the on-screen preview match the printed PDF. The browser decides page breaks only when printing, so the preview has to predict them by measuring layout and simulating the same rules, including two columns that break independently in the sidebar layout.",
+      "Letting users customize the CV without breaking it. Every front matter value is validated, and an invalid value gives a warning and falls back to the theme default instead of producing a broken CV.",
+    ],
+    learned: [],
+    nextSteps: ["More themes, better customization, premade formats"],
+  },
 };
